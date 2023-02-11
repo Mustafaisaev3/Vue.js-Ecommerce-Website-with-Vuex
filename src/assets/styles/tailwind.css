@@ -1,0 +1,38 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .container {
+    	@apply max-w-[1200px] my-auto mx-auto
+    }
+}
+
+@layer components {
+    /* Topbar */
+    .item-list:after {
+        content: "";
+        background: rgba(245,245,245,.15);
+        display: inline-block;
+        width: 1px;
+        height: 15px;
+        margin: auto 0;
+        margin-left: 15px
+    }
+    .item-list:last-child:after {
+        content: none;
+    }
+
+    /* Header vertical Menu */
+    .vertical_menu:after {
+        content: "";
+        background: rgba(245,245,245,.15);
+        display: inline-block;
+        width: 1px;
+        height: 15px;
+        margin: auto 0;
+        margin-left: 15px
+    }
+
+}
