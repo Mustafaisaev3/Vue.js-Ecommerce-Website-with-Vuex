@@ -5,7 +5,7 @@
 
 @layer base {
     .container {
-    	@apply max-w-[1200px] my-auto mx-auto
+    	@apply max-w-[1300px] my-auto mx-auto
     }
 }
 
@@ -25,14 +25,14 @@
     }
 
     /* Header vertical Menu */
-    .vertical_menu:after {
+    .hello{
         content: "";
         background: rgba(245,245,245,.15);
         display: inline-block;
         width: 1px;
         height: 15px;
         margin: auto 0;
-        margin-left: 15px
+        margin-left: 15px;
     }
 
 }

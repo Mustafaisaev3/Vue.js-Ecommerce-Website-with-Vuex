@@ -6,8 +6,8 @@
         </div>
     </div>
     <div class="header-search">
-        <div class="w-[400px] h-[50px] flex items-center justify-between bg-white rounded-md overflow-hidden p-1">
-            <input type="text" class="w-full h-full outline-none" placeholder="Search for products ...">
+        <div class="w-[600px] h-[50px] flex items-center justify-between bg-white rounded-md overflow-hidden p-1">
+            <input type="text" class="w-full h-full px-4 outline-none" placeholder="Search for products ...">
             <button class="!w-[40px] h-[40px] text-white rounded-md flex items-center justify-center bg-[#16bcdc] hover:bg-[#14a8c5] transition-all ">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>

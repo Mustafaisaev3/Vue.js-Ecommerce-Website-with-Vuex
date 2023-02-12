@@ -1,7 +1,10 @@
 <template>
-  <HeaderComponent>
-
-  </HeaderComponent>
+  <div>
+    <HeaderComponent>
+  
+    </HeaderComponent>
+  </div>
+  <router-view />
 </template>
 
 <script>
