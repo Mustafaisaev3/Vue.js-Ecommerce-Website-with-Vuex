@@ -1,5 +1,5 @@
 <template>
-  <div class="container pb-[30px]"> 
+  <div class="container my-[50px]"> 
     <SectionTitle :title="'Top Deals Of The Day'" :url="'/about'" />
     <div class="carousel">
         <Swiper
@@ -59,6 +59,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
+
 
 export default {
     data(){
