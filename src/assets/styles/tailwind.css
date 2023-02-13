@@ -4,8 +4,17 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        background: #f3f5f6;
+    }
     .container {
     	@apply max-w-[1300px] my-auto mx-auto
+    }
+
+    .card {
+        background: white;
+        border-radius: 20px;
+        padding: 20px
     }
 }
 

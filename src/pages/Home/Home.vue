@@ -2,15 +2,18 @@
 <template>
   <div>
     <HomeMainSlidershow />
+    <HomeHotProducts />
   </div>
 </template>
 
 <script>
 import HomeMainSlidershow from './HomeMainSlidershow.vue';
+import HomeHotProducts from './HomeHotProducts.vue';
 
 export default {
   components: {
-    HomeMainSlidershow
+    HomeMainSlidershow,
+    HomeHotProducts
   }
 }
 </script>
