@@ -4,6 +4,7 @@
     <HomeMainSlidershow />
     <HomeHotProducts />
     <HomePopularCategories />
+    <HomeTopDealsVue />
   </div>
 </template>
 
@@ -11,12 +12,14 @@
 import HomeMainSlidershow from './HomeMainSlidershow.vue';
 import HomeHotProducts from './HomeHotProducts.vue';
 import HomePopularCategories from './HomePopularCategories.vue';
+import HomeTopDealsVue from './HomeTopDeals.vue';
 
 export default {
   components: {
     HomeMainSlidershow,
     HomeHotProducts,
-    HomePopularCategories
+    HomePopularCategories,
+    HomeTopDealsVue
   }
 }
 </script>

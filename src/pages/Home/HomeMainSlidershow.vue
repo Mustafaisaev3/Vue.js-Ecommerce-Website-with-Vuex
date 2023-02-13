@@ -62,9 +62,6 @@ export default {
                     image: require('@/assets/images/slider/slide3.png'),
                     link: '#'
                 }
-                // require('@/assets/images/slider/slide1.png'),
-                // require('@/assets/images/slider/slide2.png'),
-                // require('@/assets/images/slider/slide3.png'),
             ],
             bannerSlides: [
                 require('@/assets/images/banners/banner1.avif'),

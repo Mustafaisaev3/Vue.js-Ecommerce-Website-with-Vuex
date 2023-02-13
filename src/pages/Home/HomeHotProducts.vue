@@ -27,12 +27,11 @@
 import SectionTitle from '@/components/SectionTitle.vue';
 import ProductCard from '@/components/ProductCard/ProductCard.vue'
 import products from '@/data/products';
+
 // import Swiper core and required modules
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Navigation, Autoplay  } from 'swiper';
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
