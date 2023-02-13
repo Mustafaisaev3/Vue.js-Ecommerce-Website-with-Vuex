@@ -26,7 +26,7 @@
     
     <div class="w-auto h-full grid grid-cols-2 grid-rows-2 gap-4">
         <div v-for="banner in bannerSlides" :key="banner"  class="banner-item w-full h-full rounded-[30px] bg-[#cc56ff] relative overflow-hidden">
-            <img class="banner-image w-full h-full object-cover" :src="banner" />
+            <img class="banner-image w-full h-full object-cover transition-all" :src="banner" />
             <div class="w-full h-full flex flex-col items-start justify-between absolute top-0 left-0 p-[30px]">
                 <h3 class="text-white text-[25px] text-left leading-7">Phone<br> Galaxy S20</h3>
                 <p class="text-white text-[18px] text-left pt-5">Cellphone & Tablets</p>

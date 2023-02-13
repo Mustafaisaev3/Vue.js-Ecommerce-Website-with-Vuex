@@ -3,17 +3,20 @@
   <div>
     <HomeMainSlidershow />
     <HomeHotProducts />
+    <HomePopularCategories />
   </div>
 </template>
 
 <script>
 import HomeMainSlidershow from './HomeMainSlidershow.vue';
 import HomeHotProducts from './HomeHotProducts.vue';
+import HomePopularCategories from './HomePopularCategories.vue';
 
 export default {
   components: {
     HomeMainSlidershow,
-    HomeHotProducts
+    HomeHotProducts,
+    HomePopularCategories
   }
 }
 </script>
