@@ -6,6 +6,9 @@
     <HomePopularCategories />
     <HomeTopDealsVue />
     <HomeBannerRow />
+    <HomeBrands />
+    <HomeRecommendedForYou />
+    <HomeBlogSlider />
   </div>
 </template>
 
@@ -15,6 +18,9 @@ import HomeHotProducts from './HomeHotProducts.vue';
 import HomePopularCategories from './HomePopularCategories.vue';
 import HomeTopDealsVue from './HomeTopDeals.vue';
 import HomeBannerRow from './HomeBannerRow.vue';
+import HomeBrands from './HomeBrands.vue'
+import HomeRecommendedForYou from './HomeRecommendedForYou.vue';
+import HomeBlogSlider from './HomeBlogSlider.vue';
 
 export default {
   components: {
@@ -22,7 +28,10 @@ export default {
     HomeHotProducts,
     HomePopularCategories,
     HomeTopDealsVue,
-    HomeBannerRow
+    HomeBannerRow,
+    HomeBrands,
+    HomeRecommendedForYou,
+    HomeBlogSlider
   }
 }
 </script>
