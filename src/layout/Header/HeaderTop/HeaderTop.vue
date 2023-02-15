@@ -34,7 +34,7 @@
                 </div>
             </li>
             <li class="flex items-center cursor-pointer">
-                <div class="text-white text-[30px]">
+                <div class="text-white text-[30px]" @click="openCart">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
                 <div class="pl-2">
@@ -48,8 +48,17 @@
 </template>
 
 <script>
-export default {
+import { UIActionsType } from '@/store/modules/ui';
 
+export default {
+    methods: {
+        openCart () {
+            this.$store.commit(UIActionsType.OPEN_DRAWER, {
+                view: 'CART_VIEW',
+                data: 'CART'
+            })
+        }
+    }
 }
 </script>
 

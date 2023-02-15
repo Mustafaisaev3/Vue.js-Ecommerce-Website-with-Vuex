@@ -10,8 +10,6 @@
             class="h-full"
         >
             <SwiperSlide v-for="image,index in data.images" :key="index">
-                <!-- <ProductCard :product="product" /> -->
-                <!-- <img :src="data.images[0]" alt="data.title" class="h-full object-cover"> -->
                 <img :src="image" alt="data.title" class="h-full object-cover">
             </SwiperSlide>
         </Swiper>

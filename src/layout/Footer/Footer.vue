@@ -5,11 +5,13 @@
         <FooterMain />
     </div>
     <Modal />
+    <Drawer />
   </footer>
 </template>
 
 <script>
 import Modal from '@/components/UI/Modal/Modal.vue';
+import Drawer from '@/components/UI/Drawer/Drawer.vue';
 import FooterAdvantages from './FooterAdvantages.vue';
 import FooterMain from './FooterMain.vue'
 
@@ -17,7 +19,8 @@ export default {
     components: {
     FooterAdvantages,
     FooterMain,
-    Modal
+    Modal,
+    Drawer
 }
 }
 </script>
