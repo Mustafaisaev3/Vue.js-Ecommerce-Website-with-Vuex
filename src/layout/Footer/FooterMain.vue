@@ -12,7 +12,7 @@
             <img :src="require('@/assets/images/app_2.png')" alt="">
         </div>
         <div class="pb-[25px] flex gap-2">
-            <div class="w-[40px] h-[40px] bg-[#0ecae6] rounded-sm flex items-center justify-center">
+            <div class="w-[40px] h-[40px] bg-[#0ecae6] rounded-sm flex items-center justify-center" @click="openModal()">
                 <IconTwitter />
             </div>
             <div class="w-[40px] h-[40px] bg-[#2d88ff] rounded-sm flex items-center justify-center">
@@ -164,13 +164,31 @@ import IconPinterest from '~icons/mdi/pinterest'
 import IconInstagram from '~icons/mdi/instagram'
 import IconYoutube from '~icons/mdi/youtube'
 
+import { UIActionsType } from '@/store/modules/ui'
+
 export default {
+    data () {
+        return {
+            // showModal: false
+        }
+    },
     components: {
         IconTwitter,
         IconFacebook,
         IconPinterest,
         IconInstagram,
         IconYoutube,
+    },
+    methods: {
+        openModal() {
+            this.$store.commit(UIActionsType.OPEN_MODAL, {
+                view: 'PRODUCT_VIEW',
+                data: 'Modal Data'
+            })
+            // this.$store.commit(UIActionsType.SET_MODAL_VIEW, 'PRODUCT_VIEW')
+
+            console.log(this.$store.state)
+        },
     }
 }
 </script>

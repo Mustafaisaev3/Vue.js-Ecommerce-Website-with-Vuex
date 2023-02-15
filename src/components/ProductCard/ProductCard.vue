@@ -35,7 +35,7 @@
             <div class="w-[35px] h-[35px] flex items-center justify-center rounded-full bg-gray-300 hover:bg-[#16bcdc] hover:text-white">
                 <i class="fa-solid fa-layer-group"></i>
             </div>
-            <div class="w-[35px] h-[35px] flex items-center justify-center rounded-full bg-gray-300 hover:bg-[#16bcdc] hover:text-white">
+            <div @click="openModal" class="w-[35px] h-[35px] flex items-center justify-center rounded-full bg-gray-300 hover:bg-[#16bcdc] hover:text-white">
                 <i class="fa-regular fa-eye"></i>
             </div>
         </div>
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import { UIActionsType } from '@/store/modules/ui'
+
 export default {
     data(){
         return{
@@ -52,10 +54,23 @@ export default {
 
     props: ['product'],
 
+    computed: {
+
+    },
+
     methods: {
         toggleShowBtn () {
             this.showBtn = !this.showBtn
-        }
+        },
+        openModal() {
+            this.$store.commit(UIActionsType.OPEN_MODAL, {
+                view: 'PRODUCT_VIEW',
+                data: this.product
+            })
+            // this.$store.commit(UIActionsType.SET_MODAL_VIEW, 'PRODUCT_VIEW')
+
+            console.log(this.$store.state)
+        },
     }
 }
 </script>

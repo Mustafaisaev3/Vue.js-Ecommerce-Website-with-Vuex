@@ -50,8 +50,7 @@
           SectionTitle,
           ProductCard,
           Swiper, 
-          SwiperSlide,
-          
+          SwiperSlide,  
       },
   
       methods: {
