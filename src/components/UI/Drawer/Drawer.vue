@@ -16,12 +16,18 @@
 import { mapState } from 'vuex';
 import Cart from '@/components/Cart/Cart.vue';
 import CartView from './DrawerViews/CartView.vue';
+import WishlistView from './DrawerViews/WishlistView.vue';
 
 const views = [
     {   
         name: 'CART_VIEW',
         view: CartView
-    }
+    },
+    {   
+        name: 'WISHLIST_VIEW',
+        view: WishlistView
+    },
+
 ]
 
 export default {
@@ -32,7 +38,8 @@ export default {
         }
     },
     components: {
-        CartView
+        CartView,
+        WishlistView
     },
     computed: {
         ...mapState({

@@ -25,7 +25,7 @@
                 </div>
             </li>
             <li class="flex items-center cursor-pointer">
-                <div class="text-white text-[30px]">
+                <div class="text-white text-[30px]" @click="openWishlist">
                     <i class="fa-regular fa-heart"></i>
                 </div>
                 <div class="pl-2">
@@ -57,7 +57,13 @@ export default {
                 view: 'CART_VIEW',
                 data: 'CART'
             })
-        }
+        },
+        openWishlist () {
+            this.$store.commit(UIActionsType.OPEN_DRAWER, {
+                view: 'WISHLIST_VIEW',
+                data: 'WISHLIST'
+            })
+        },
     }
 }
 </script>
