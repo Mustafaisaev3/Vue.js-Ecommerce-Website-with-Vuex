@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import ui from './modules/ui'
+import cart from './modules/cart'
 
 // const store = createStore({
 //     state () {
@@ -10,7 +11,8 @@ import ui from './modules/ui'
 // })
 const store = createStore({
     modules: {
-        ui
+        ui,
+        cart
     }
 })
 

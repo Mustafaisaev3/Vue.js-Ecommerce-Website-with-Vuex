@@ -1,6 +1,6 @@
 <template>
   <section class="main-slidershow container w-full h-[400px] py-8 flex gap-8">
-    <div class="w-[900px] h-auto rounded-[30px] overflow-hidden">
+    <div class="max-w-[900px] h-auto rounded-[30px] overflow-hidden">
         <Carousel class="w-full h-full overflow-hidden relative" :items-to-show="1" :autoplay="3000">
             <Slide class="w-full h-full relative" v-for="slide in carouselSlides" :key="slide">
                 <img class="w-full h-full object-cover " :src="slide.image" >

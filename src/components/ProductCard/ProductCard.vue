@@ -23,7 +23,7 @@
         </div>
 
         <!-- Add to cart btn -->
-        <div v-show="showBtn" class="w-full h-auto flex items-center justify-center p-4 rounded-b-[20px] absolute top-[90%] left-0 bg-white">
+        <div v-show="showBtn" @click="add_to_cart()" class="w-full h-auto flex items-center justify-center p-4 rounded-b-[20px] absolute top-[90%] left-0 bg-white">
             <div class="w-[180px] h-[50px] flex items-center justify-center rounded-[30px] text-white bg-[#16bcdc] ">Add to Card</div>
         </div>
 
@@ -55,11 +55,11 @@ export default {
     props: ['product'],
 
     computed: {
-
+        
     },
 
     methods: {
-        toggleShowBtn () {
+        toggleShowBtn() {
             this.showBtn = !this.showBtn
         },
         openModal() {
@@ -71,6 +71,12 @@ export default {
 
             console.log(this.$store.state)
         },
+        add_to_cart() {
+            this.$store.dispatch('addProductToCart', {
+                product: this.product,
+                quantity: 1
+            })
+        }
     }
 }
 </script>

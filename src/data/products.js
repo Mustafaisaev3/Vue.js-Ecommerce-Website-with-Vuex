@@ -1,6 +1,6 @@
 export default [
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'Game Console Controller + USB 3.0 Cable',
         price: 99.00,
         images: [
@@ -10,7 +10,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'Vivo IQOO 7 Legend - 4000 MAh Lithium-Polymer',
         price: 210.00,
         images: [
@@ -22,7 +22,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'Stainless Steel Dual Basket ProFry',
         price: 520.00,
         images: [
@@ -32,7 +32,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'Modern Sony Smart Speaker LFS50G',
         price: 220.00,
         images: [
@@ -42,7 +42,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'New Samsung Galaxy Note 20 Ultra 5G',
         price: 520.00,
         images: [
@@ -52,7 +52,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'Oculus Go Standalone Virtual Reality Headset ',
         price: 430.00,
         images: [
@@ -63,7 +63,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'Samsung NX Mini Mirrorless Digital Camera',
         price: 270.00,
         images: [
@@ -73,7 +73,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'MSI 27" Modern AM271P All-In-One Desktop Computer',
         price: 655.00,
         images: [
@@ -83,7 +83,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'Microsoft Surface Laptop 4 15" I7 512GB/16GB',
         price: 605.00,
         images: [
@@ -94,7 +94,7 @@ export default [
         ]
     },
     {
-        id: Math.floor(Math.random()),
+        id: Math.floor(Math.random() * 1000000),
         title: 'New Apple MacBook Pro 13.3-Inch',
         price: 685.00,
         images: [
