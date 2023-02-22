@@ -2,17 +2,12 @@
     <div class="container mb-[25px]">
       <SectionTitle :title="'Recommended For You'" :url="'/about'" />
       <div class="carousel h-[400px] flex gap-5" >
-          <!-- <Carousel :items-to-show="8">
-              <Slide v-for="product in products" :key="product.id" class="gap-4">
-                  <ProductCard :product="product" />
-              </Slide>
-          </Carousel> -->
           <Swiper
               :modules="modules"
-              :slides-per-view="6"
-              :space-between="80"
+              :space-between="40"
               navigation
               autoplay
+              :breakpoints="breakpoints"
           >
               <SwiperSlide v-for="product in products" :key="product.id">
                   <ProductCard :product="product" />
@@ -26,6 +21,7 @@
   <script>
   import SectionTitle from '@/components/SectionTitle.vue';
   import ProductCard from '@/components/ProductCard/ProductCard.vue'
+  import swiperBreakpoints from '@/utils/swiperBreakpoints';
   import products from '@/data/products';
   
   // import Swiper core and required modules
@@ -51,6 +47,12 @@
           ProductCard,
           Swiper, 
           SwiperSlide,  
+      },
+
+      computed: {
+        breakpoints () {
+            return swiperBreakpoints
+        }
       },
   
       methods: {

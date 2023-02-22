@@ -9,10 +9,10 @@
         </Carousel> -->
         <Swiper
             :modules="modules"
-            :slides-per-view="6"
-            :space-between="80"
+            :space-between="40"
             navigation
             autoplay
+            :breakpoints="breakpoints"
         >
             <SwiperSlide v-for="product in products" :key="product.id">
                 <ProductCard :product="product" />
@@ -26,6 +26,7 @@
 <script>
 import SectionTitle from '@/components/SectionTitle.vue';
 import ProductCard from '@/components/ProductCard/ProductCard.vue'
+import swiperBreakpoints from '@/utils/swiperBreakpoints';
 import products from '@/data/products';
 
 // import Swiper core and required modules
@@ -54,11 +55,17 @@ export default {
         
     },
 
+    computed: {
+        breakpoints () {
+            return swiperBreakpoints
+        }
+    },
+
     methods: {
         toggleShowBtn () {
             this.showBtn = !this.showBtn
         }
-    }
+    },
 }
 </script>
 
