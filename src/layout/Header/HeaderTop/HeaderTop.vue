@@ -2,7 +2,7 @@
   <div class="container h-[100px] flex items-center justify-between">
     <div class="header-logo">
         <div class="w-auto h-auto text-[30px] text-white">
-            <a href="#" class="cursor-pointer">E-COMMERCE</a>
+            <a href="#" class="cursor-pointer" @click="this.$router.push('/')">E-COMMERCE</a>
         </div>
     </div>
     <div class="header-search">

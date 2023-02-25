@@ -30,7 +30,7 @@
                         </div>
                         <span class="inline-block text-[#0d0d0d] text-[20px] font-semibold pt-2">${{ product.price }}</span>
                         <div class="w-full h-auto flex items-center rounded-b-[20px]">
-                            <div class="w-full h-[50px] flex items-center justify-center rounded-[30px] text-white bg-[#16bcdc] ">Add to Card</div>
+                            <div class="w-full h-[50px] flex items-center justify-center rounded-[30px] text-white bg-[#16bcdc] cursor-pointer">Add to Card</div>
                         </div>
                     </div>
                     <!-- Badges Block -->

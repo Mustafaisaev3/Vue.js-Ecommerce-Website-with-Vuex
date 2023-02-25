@@ -3,6 +3,9 @@
     <Breadcrumbs />
     <ProductMainInfo />
     <ProductAdditionalInformation />
+    <!-- <ProductRelatedProducts /> -->
+    <ProductSlider :title="'Related Products'" />
+    <ProductSlider :title="'Viewed Products'" />
   </div>
 </template>
 
@@ -10,12 +13,14 @@
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs.vue';
 import ProductMainInfo from './ProductMainInfo.vue';
 import ProductAdditionalInformation from './ProductAdditionalInformation.vue';
+import ProductSlider from '@/components/Product/ProductSlider.vue'
 
 export default {
   components: {
     Breadcrumbs,
     ProductMainInfo,
-    ProductAdditionalInformation
+    ProductAdditionalInformation,
+    ProductSlider
   }
 }
 </script>

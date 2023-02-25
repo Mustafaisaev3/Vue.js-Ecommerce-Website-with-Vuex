@@ -1,5 +1,5 @@
 <template>
-  <button :class="[buttonType]">
+  <button class="whitespace-nowrap" :class="[buttonType]">
     <slot></slot>
   </button>
 </template>

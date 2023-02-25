@@ -25,7 +25,7 @@
                 <span class="text-[18px] text-[#222222] font-bold">${{ cartTotal }}</span>
             </div>
             <div class="flex flex-col gap-2">
-                <Button :buttonType="buttonTypes.SECONDARY">View Cart</Button>
+                <Button :buttonType="buttonTypes.SECONDARY" @click="openCartPage">View Cart</Button>
                 <Button :buttonType="buttonTypes.PRIMARY">Checkout</Button>
             </div>
         </div>
@@ -60,6 +60,9 @@ export default {
         },
         deleteFromCart (id) {
             this.$store.dispatch('deleteProductFromCart', id)
+        },
+        openCartPage () {
+            this.$router.push('/cart')
         }
     }
 }

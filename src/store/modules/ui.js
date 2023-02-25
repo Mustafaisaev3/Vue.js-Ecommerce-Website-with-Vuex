@@ -11,6 +11,7 @@ export const UIActionsType = {
     CLOSE_DRAWER: 'CLOSE_DRAWER',
     SET_DRAWER_VIEW: 'SET_DRAWER_VIEW',
     SET_DRAWER_DATA: 'SET_DRAWER_DATA',
+    
 }
 
 export default {

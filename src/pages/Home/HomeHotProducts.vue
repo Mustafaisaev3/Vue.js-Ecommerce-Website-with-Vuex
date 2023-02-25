@@ -25,7 +25,7 @@
 
 <script>
 import SectionTitle from '@/components/SectionTitle.vue';
-import ProductCard from '@/components/ProductCard/ProductCard.vue'
+import ProductCard from '@/components/Product/ProductCard.vue'
 import swiperBreakpoints from '@/utils/swiperBreakpoints';
 import products from '@/data/products';
 

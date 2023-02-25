@@ -1,10 +1,10 @@
 <template>
     <div class="container mb-[25px]">
-      <SectionTitle :title="'Recommended For You'" :url="'/about'" />
+      <SectionTitle :title="title" :url="url" />
       <div class="carousel h-[400px] flex gap-5" >
           <Swiper
               :modules="modules"
-              :space-between="40"
+              :space-between="20"
               navigation
               autoplay
               :breakpoints="breakpoints"
@@ -41,7 +41,8 @@
               products,
               modules: [Navigation, Autoplay ],
           }
-      },  
+      }, 
+      props: ['title', 'url'], 
       components: {
           SectionTitle,
           ProductCard,
@@ -52,6 +53,9 @@
       computed: {
         breakpoints () {
             return swiperBreakpoints
+        },
+        sliderTitle () {
+            return this.title
         }
       },
   

@@ -2,16 +2,13 @@
   <div class="p-[20px]"> 
     <ul class="flex gap-1">
         <li>
-            <span class="text-[#999] capitalize">hello 1</span>
+            <span class="text-[#999] capitalize">Home</span>
         </li>
         <li>
-            <span class="text-[#999] capitalize">hello 1</span>
+            <span class="text-[#999] capitalize">Cellphone</span>
         </li>
         <li>
-            <span class="text-[#999] capitalize">hello 1</span>
-        </li>
-        <li>
-            <span class="active capitalize">hello 1</span>
+            <span class="active capitalize">Zoom Samsung Galaxy International Vs</span>
         </li>
     </ul>
   </div>

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div 
-        class="card min-w-[200px] h-[330px] relative" 
+        class="card max-w-[250px] w-full h-[330px] relative" 
         :class="{'rounded-b-[0]': showBtn}" 
         @mouseenter="toggleShowBtn" 
         @mouseleave="toggleShowBtn"
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Add to cart btn -->
-        <div v-show="showBtn" @click="add_to_cart" class="w-full h-auto flex items-center justify-center p-4 rounded-b-[20px] absolute top-[90%] left-0 bg-white">
+        <div v-show="showBtn" @click="add_to_cart" class="w-full h-auto flex items-center justify-center p-4 rounded-b-[20px] absolute top-[90%] left-0 bg-white cursor-pointer">
             <div class="w-[180px] h-[50px] flex items-center justify-center rounded-[30px] text-white bg-[#16bcdc] ">Add to Card</div>
         </div>
 
