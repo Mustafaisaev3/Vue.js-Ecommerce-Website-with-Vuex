@@ -44,6 +44,7 @@
 
 <script>
 import { UIActionsType } from '@/store/modules/ui'
+import notificationTypes from '@/types/notification-types'
 
 export default {
     data(){
@@ -76,6 +77,9 @@ export default {
                 product: this.product,
                 quantity: 1
             })
+
+            this.$store.dispatch('addNotification', {type: notificationTypes.SUCCESS, text: 'Product added to cart'})
+
         },
         addToWishlist () {
             this.$store.dispatch('addProductToWishlist', this.product)

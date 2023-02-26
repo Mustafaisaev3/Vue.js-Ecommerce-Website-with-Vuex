@@ -43,6 +43,7 @@ export default {
         IconClose,
         Button
     },
+
     computed: {
         buttonTypes () {
             return ButtonTypes
@@ -54,6 +55,7 @@ export default {
             return this.$store.getters.cartTotal
         }
     },
+
     methods: {
         closeCart () {
             this.$store.commit(UIActionsType.CLOSE_DRAWER)
@@ -63,7 +65,7 @@ export default {
         },
         openCartPage () {
             this.$router.push('/cart')
-        }
+        },
     }
 }
 </script>
