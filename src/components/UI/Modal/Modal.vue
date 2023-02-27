@@ -1,8 +1,8 @@
 <template>
-  <teleport to="body">
+  <teleport to="body" >
     <div v-if="showModal" class="fixed top-0 left-0 w-full h-full bg-[#131313c9] flex items-center justify-center z-10">
         <div class="w-auto h-auto bg-white rounded-md relative overflow-hidden">
-            <component :is="activeView" :data="modalData"></component>
+            <component v-click-outside="closeModal" :is="activeView" :data="modalData"></component>
             <div class="w-[40px] h-[40px] flex items-center justify-center bg-[#00b7ff] rounded-sm text-white cursor-pointer absolute top-0 right-0" @click="closeModal">
                 <IconClose style="font-size: 20px" />
             </div>
