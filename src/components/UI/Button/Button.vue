@@ -36,6 +36,7 @@ export default {
 
 .secondary:hover {
     background: rgb(3, 179, 219);
+    border: 1px solid rgb(3, 179, 219);
     color: white;
 }
 </style>
