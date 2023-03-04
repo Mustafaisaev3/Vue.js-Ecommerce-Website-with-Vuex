@@ -16,7 +16,7 @@
     <div class="header-top__meta">
         <ul class="flex items-center gap-6">
             <li class="flex items-center cursor-pointer">
-                <div class="text-white text-[40px]" @click="openLogin">
+                <div class="text-white text-[40px] relative" @click="openLogin">
                     <IconAccountOutline />
                 </div>
                 <div class="pl-2">
@@ -25,9 +25,10 @@
                 </div>
             </li>
             <li class="flex items-center cursor-pointer">
-                <div class="text-white text-[30px]" @click="openWishlist">
+                <div class="text-white text-[35px] relative" @click="openWishlist">
                     <!-- <i class="fa-regular fa-heart"></i> -->
                     <IconHeartOutline />
+                    <Badge :text="wishlistItemsTotal" />
                 </div>
                 <div class="pl-2">
                     <span class="text-[#a3afef] text-xs mb-1 block">Favorite</span>
@@ -35,9 +36,10 @@
                 </div>
             </li>
             <li class="flex items-center cursor-pointer">
-                <div class="text-white text-[30px]" @click="openCart">
+                <div class="text-white text-[35px] relative" @click="openCart">
                     <!-- <i class="fa-solid fa-bag-shopping"></i> -->
                     <IconCartOutline />
+                    <Badge :text="cartItemsTotal" />
                 </div>
                 <div class="pl-2">
                     <span class="text-[#a3afef] text-xs mb-1 block">Your Cart: </span>
@@ -55,12 +57,22 @@ import { ModalViewsType } from '@/types/modal-views-types';
 import IconAccountOutline from '~icons/mdi/account-outline'
 import IconHeartOutline from '~icons/mdi/heart-outline'
 import IconCartOutline from '~icons/mdi/cart-outline'
+import Badge from '@/components/UI/Badge/Badge.vue'
 
 export default {
     components: {
         IconAccountOutline,
         IconHeartOutline,
-        IconCartOutline
+        IconCartOutline,
+        Badge
+    },
+    computed: {
+        cartItemsTotal() {
+            return this.$store.getters.cartItemsCount
+        },
+        wishlistItemsTotal() {
+            return this.$store.getters.wishlistItemsCount
+        },
     },
     methods: {
         openCart () {

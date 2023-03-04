@@ -7,19 +7,19 @@
       <form action="#">
           <div class="login-form">
               <div class="login-form__field">
-                  <Input required v-model="firstName" :label="'First name'" />
+                  <Input required v-model="firstName" :label="'First name'" placeholder="First name" />
               </div>
               <div class="login-form__field">
-                  <Input required v-model="lustName" :label="'Lust name'" />
+                  <Input required v-model="lustName" :label="'Lust name'" placeholder="Lust name" />
               </div>
               <div class="login-form__field">
-                  <Input required v-model="email" :label="'Email'" />
+                  <Input required v-model="email" :label="'Email'" placeholder="Email" />
               </div>
               <div class="login-form__field">
-                  <Input required v-model="password" :label="'Password'" />
+                  <Input required v-model="password" :label="'Password'" placeholder="Password" />
               </div>
               <div class="login-form__field">
-                  <Input required v-model="confirmPassword" :label="'Confirm password'" />
+                  <Input required v-model="confirmPassword" :label="'Confirm password'" placeholder="Confirm password" />
               </div>
 
               <div class="buttons mt-5">

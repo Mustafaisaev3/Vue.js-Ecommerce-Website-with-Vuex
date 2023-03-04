@@ -5,7 +5,7 @@
         <div 
             v-for="option in options" 
             :key="option" 
-            class="w-full h-auto px-2 py-1 hover:bg-[#16bcdc] hover:text-white"
+            class="w-full h-auto px-4 py-1 hover:bg-[#16bcdc] hover:text-white"
             @click="value = option"
         >
             {{ option }}

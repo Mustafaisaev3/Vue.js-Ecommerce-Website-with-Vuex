@@ -13,6 +13,9 @@ export default {
         wishlistProducts (state) {
             return state.products
         },
+        wishlistItemsCount (state) {
+            return state.products.length
+        }
     },
 
     mutations: {

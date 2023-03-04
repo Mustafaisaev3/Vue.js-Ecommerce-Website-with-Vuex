@@ -7,10 +7,10 @@
     <form action="#">
         <div class="login-form">
             <div class="login-form__field">
-                <Input required v-model="email" :label="'Email'" />
+                <Input required v-model="email" :label="'Email'" placeholder="Email" />
             </div>
             <div class="login-form__field">
-                <Input required v-model="password" :label="'Password'" />
+                <Input required v-model="password" :label="'Password'" placeholder="Password" />
             </div>
             <div class="check flex items-center justify-between">
                 <label class="flex gap-2 cursor-pointer">

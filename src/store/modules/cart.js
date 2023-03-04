@@ -102,6 +102,13 @@ export default {
                 total += product.price * quantity
             })
             return total
+        },
+        cartItemsCount (state) {
+            let totalItemsCount = state.products.reduce((total, product) => {
+                return total + product.quantity
+            }, 0)
+            console.log(totalItemsCount)
+            return totalItemsCount
         }
     },
 
