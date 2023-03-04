@@ -16,8 +16,8 @@
     <div class="header-top__meta">
         <ul class="flex items-center gap-6">
             <li class="flex items-center cursor-pointer">
-                <div class="text-white text-[30px]">
-                    <i class="fa-regular fa-user"></i>
+                <div class="text-white text-[40px]" @click="openLogin">
+                    <IconAccountOutline />
                 </div>
                 <div class="pl-2">
                     <span class="text-[#a3afef] text-xs mb-1 block">Login</span>
@@ -26,7 +26,8 @@
             </li>
             <li class="flex items-center cursor-pointer">
                 <div class="text-white text-[30px]" @click="openWishlist">
-                    <i class="fa-regular fa-heart"></i>
+                    <!-- <i class="fa-regular fa-heart"></i> -->
+                    <IconHeartOutline />
                 </div>
                 <div class="pl-2">
                     <span class="text-[#a3afef] text-xs mb-1 block">Favorite</span>
@@ -35,7 +36,8 @@
             </li>
             <li class="flex items-center cursor-pointer">
                 <div class="text-white text-[30px]" @click="openCart">
-                    <i class="fa-solid fa-bag-shopping"></i>
+                    <!-- <i class="fa-solid fa-bag-shopping"></i> -->
+                    <IconCartOutline />
                 </div>
                 <div class="pl-2">
                     <span class="text-[#a3afef] text-xs mb-1 block">Your Cart: </span>
@@ -49,8 +51,17 @@
 
 <script>
 import { UIActionsType } from '@/store/modules/ui';
+import { ModalViewsType } from '@/types/modal-views-types';
+import IconAccountOutline from '~icons/mdi/account-outline'
+import IconHeartOutline from '~icons/mdi/heart-outline'
+import IconCartOutline from '~icons/mdi/cart-outline'
 
 export default {
+    components: {
+        IconAccountOutline,
+        IconHeartOutline,
+        IconCartOutline
+    },
     methods: {
         openCart () {
             this.$store.commit(UIActionsType.OPEN_DRAWER, {
@@ -64,6 +75,12 @@ export default {
                 data: 'WISHLIST'
             })
         },
+        openLogin () {
+            this.$store.commit(UIActionsType.OPEN_MODAL, {
+                view: ModalViewsType.LOGIN_VIEW,
+                data: 'LOGIN'
+            })
+        }
     }
 }
 </script>

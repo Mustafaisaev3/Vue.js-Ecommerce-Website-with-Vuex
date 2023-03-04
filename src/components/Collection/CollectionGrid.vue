@@ -15,9 +15,10 @@ import ProductGridCard from '@/components/Product/ProductGridCard.vue'
 export default {
     data () {
         return {
-            products
+            // products
         }
     },
+    props: ['products'],
     components: {
         ProductGridCard
     },

@@ -5,8 +5,9 @@
       <!-- <div class="w-full h-auto rounded-md overflow-hidden">
         <img class="w-full" src="https://cdn.shopify.com/s/files/1/0606/6867/4281/collections/cate_1_1080x.jpg?v=1637826003" alt="">
       </div> -->
-      <CollectionHeader />
-      <CollectionGrid />
+      <CollectionHeader @emitLayout="setLayout" :layout="layout" />
+      <CollectionGrid v-if="layout == 'GRID'" :products="products" />
+      <CollectionList v-if="layout == 'LIST'" :products="products" />
     </div>
   </div>
 </template>
@@ -15,12 +16,31 @@
 import CollectionSidebar from './CollectionSidebar.vue';
 import CollectionHeader from './CollectionHeader.vue';
 import CollectionGrid from './CollectionGrid.vue';
+import CollectionList from './CollectionList.vue';
+import products from '@/data/products';
+
+const layout = {
+  GRID: 'GRID',
+  LIST: 'LIST',
+}
 
 export default {
+  data () {
+    return {
+      products,
+      layout: layout.GRID
+    }
+  },
   components: { 
     CollectionSidebar,
     CollectionHeader,
-    CollectionGrid
+    CollectionGrid,
+    CollectionList
+  },
+  methods: {
+    setLayout (value) {
+      this.layout = value
+    }
   }
 }
 </script>

@@ -45,6 +45,7 @@
 <script>
 import { UIActionsType } from '@/store/modules/ui'
 import notificationTypes from '@/types/notification-types'
+import { ModalViewsType } from '@/types/modal-views-types'
 
 export default {
     data(){
@@ -65,7 +66,7 @@ export default {
         },
         openModal() {
             this.$store.commit(UIActionsType.OPEN_MODAL, {
-                view: 'PRODUCT_VIEW',
+                view: ModalViewsType.PRODUCT_VIEW,
                 data: this.product
             })
             // this.$store.commit(UIActionsType.SET_MODAL_VIEW, 'PRODUCT_VIEW')
@@ -79,7 +80,6 @@ export default {
             })
 
             this.$store.dispatch('addNotification', {type: notificationTypes.SUCCESS, text: 'Product added to cart'})
-
         },
         addToWishlist () {
             this.$store.dispatch('addProductToWishlist', this.product)

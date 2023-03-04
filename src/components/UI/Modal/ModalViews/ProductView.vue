@@ -26,13 +26,14 @@
             </div>
         </div>
         <div class="w-full h-auto">
-            <button class="bg-[#16bcdc] text-white w-full py-4 rounded-md flex items-center justify-center ">Add to Cart</button>
+            <button @click="add_to_cart" class="bg-[#16bcdc] text-white w-full py-4 rounded-md flex items-center justify-center ">Add to Cart</button>
         </div>
     </div>
   </div>
 </template>
 
 <script>
+import notificationTypes from '@/types/notification-types';
 // import Swiper core and required modules
 import { Autoplay, Pagination  } from 'swiper';
 // Import Swiper Vue.js components
@@ -55,6 +56,17 @@ export default {
     components: {
         Swiper,
         SwiperSlide,
+    },
+
+    methods: {
+        add_to_cart() {
+            this.$store.dispatch('addProductToCart', {
+                product: this.data,
+                quantity: 1
+            })
+
+            this.$store.dispatch('addNotification', {type: notificationTypes.SUCCESS, text: 'Product added to cart'})
+        },
     }
 }
 </script>

@@ -15,13 +15,24 @@
 import { mapState } from 'vuex';
 import IconClose from '~icons/mdi/close'
 import { UIActionsType } from '@/store/modules/ui';
+import {ModalViewsType} from '@/types/modal-views-types'
 import ProductView from './ModalViews/ProductView.vue'
+import RegisterView from './ModalViews/RegisterView.vue';
+import LoginView from './ModalViews/LoginView.vue';
 
 const views = [
     {
-        name: 'PRODUCT_VIEW',
+        name: ModalViewsType.PRODUCT_VIEW,
         view: ProductView
-    }
+    },
+    {
+        name: ModalViewsType.REGISTER_VIEW,
+        view: RegisterView
+    },
+    {
+        name: ModalViewsType.LOGIN_VIEW,
+        view: LoginView
+    },
 ]
 
 export default {
@@ -32,7 +43,9 @@ export default {
     },
     components: {
         IconClose,
-        ProductView
+        ProductView,
+        RegisterView,
+        LoginView
     },
     computed: {
         ...mapState({
