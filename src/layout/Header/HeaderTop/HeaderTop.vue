@@ -26,7 +26,6 @@
             </li>
             <li class="flex items-center cursor-pointer">
                 <div class="text-white text-[35px] relative" @click="openWishlist">
-                    <!-- <i class="fa-regular fa-heart"></i> -->
                     <IconHeartOutline />
                     <Badge :text="wishlistItemsTotal" />
                 </div>
@@ -37,7 +36,6 @@
             </li>
             <li class="flex items-center cursor-pointer">
                 <div class="text-white text-[35px] relative" @click="openCart">
-                    <!-- <i class="fa-solid fa-bag-shopping"></i> -->
                     <IconCartOutline />
                     <Badge :text="cartItemsTotal" />
                 </div>

@@ -7,23 +7,23 @@
       <form action="#">
           <div class="login-form">
               <div class="login-form__field">
-                  <Input required v-model="firstName" :label="'First name'" placeholder="First name" />
+                  <Input required v-model="firstName" :label="'First name'" placeholder="First name" :error="v$.firstName.$error && v$.firstName.$errors[0].$message" />
               </div>
               <div class="login-form__field">
-                  <Input required v-model="lustName" :label="'Lust name'" placeholder="Lust name" />
+                  <Input required v-model="lustName" :label="'Lust name'" placeholder="Lust name" :error="v$.lustName.$error && v$.lustName.$errors[0].$message" />
               </div>
               <div class="login-form__field">
-                  <Input required v-model="email" :label="'Email'" placeholder="Email" />
+                  <Input required v-model="email" :label="'Email'" placeholder="Email" :error="v$.email.$error && v$.email.$errors[0].$message" />
               </div>
               <div class="login-form__field">
-                  <Input required v-model="password" :label="'Password'" placeholder="Password" />
+                  <Input required v-model="password" :label="'Password'" placeholder="Password" :error="v$.password.$error && v$.password.$errors[0].$message" />
               </div>
               <div class="login-form__field">
-                  <Input required v-model="confirmPassword" :label="'Confirm password'" placeholder="Confirm password" />
+                  <Input required v-model="confirmPassword" :label="'Confirm password'" placeholder="Confirm password" :error="v$.confirmPassword.$error && v$.confirmPassword.$errors[0].$message" />
               </div>
 
               <div class="buttons mt-5">
-                  <Button :buttonType="'primary'" class="rounded-sm">CREATE NEW ACCOUNT</Button>
+                  <Button :buttonType="'primary'" class="rounded-sm" @click="submitForm">CREATE NEW ACCOUNT</Button>
                   <p class="or">
                       <span>or</span>
                   </p>
@@ -37,12 +37,15 @@
   <script>
   import { UIActionsType } from '@/store/modules/ui';
   import { ModalViewsType } from '@/types/modal-views-types';
+  import useValidate from '@vuelidate/core'
+  import { required, email, minLength, sameAs } from '@vuelidate/validators'
   import Input from '../../Input/Input.vue';
   import Button from '../../Button/Button.vue';
   
   export default {
       data () {
           return {
+              v$: useValidate(),
               firstName: '',
               lustName: '',
               email: '',
@@ -54,10 +57,19 @@
           Input,
           Button
       },
+      validations () {
+        return {
+            firstName: { required },
+            lustName: { required },
+            email: { required, email },
+            password: { required, minLength: minLength(6) },
+            confirmPassword: { required, sameAs: sameAs(this.password) },
+        }
+      },
       watch: {
-          email () {
-              console.log(this.email)
-          }
+        //   email () {
+        //       console.log(this.email)
+        //   }
       },
       methods: {
         openModal () {
@@ -65,6 +77,15 @@
                 view: ModalViewsType.LOGIN_VIEW,
                 data: 'LOGIN'
             })
+        },
+        submitForm (e) {
+            e.preventDefault()
+            this.v$.$validate()
+            if (this.v$.$error){
+                console.log('Error')
+            } else {
+                console.log('Success')
+            }
         }
       }
   }

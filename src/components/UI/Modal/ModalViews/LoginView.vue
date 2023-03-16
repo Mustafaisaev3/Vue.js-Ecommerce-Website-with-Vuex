@@ -7,10 +7,10 @@
     <form action="#">
         <div class="login-form">
             <div class="login-form__field">
-                <Input required v-model="email" :label="'Email'" placeholder="Email" />
+                <Input required v-model="email" :label="'Email'" placeholder="Email" :error="v$.email.$error && v$.email.$errors[0].$message" />
             </div>
             <div class="login-form__field">
-                <Input required v-model="password" :label="'Password'" placeholder="Password" />
+                <Input required v-model="password" :label="'Password'" placeholder="Password" :error="v$.password.$error && v$.password.$errors[0].$message" />
             </div>
             <div class="check flex items-center justify-between">
                 <label class="flex gap-2 cursor-pointer">
@@ -20,7 +20,7 @@
                 <div>Forgot your password?</div>
             </div>
             <div class="buttons mt-5">
-                <Button :buttonType="'primary'" class="rounded-sm">LOGIN</Button>
+                <Button :buttonType="'primary'" class="rounded-sm" @click="handleLogin">LOGIN</Button>
                 <p class="or">
                     <span>or</span>
                 </p>
@@ -34,16 +34,25 @@
 <script>
 import { UIActionsType } from '@/store/modules/ui';
 import { ModalViewsType } from '@/types/modal-views-types';
+import useValidate from '@vuelidate/core'
+import { required, email, minLength } from '@vuelidate/validators'
 import Input from '../../Input/Input.vue';
 import Button from '../../Button/Button.vue';
 
 export default {
     data () {
         return {
+            v$: useValidate(),
             email: '',
             password: '',
         }
     },
+    validations() {
+        return {
+            email: { required, email },
+            password: {required, minLength: minLength(6)}
+        } 
+    },  
     components: {
         Input,
         Button
@@ -59,6 +68,10 @@ export default {
                 view: ModalViewsType.REGISTER_VIEW,
                 data: 'LOGIN'
             })
+        },
+        handleLogin(e) {
+            e.preventDefault()
+            this.v$.$validate()
         }
     }
 }
