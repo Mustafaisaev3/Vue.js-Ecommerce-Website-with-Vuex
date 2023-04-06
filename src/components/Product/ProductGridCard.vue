@@ -4,7 +4,7 @@
         @mouseenter="() => showHoverBtns = true"
         @mouseleave="() => showHoverBtns = false"
     >
-        <div class="w-[230px] h-[230px]">
+        <div class="w-full h-[230px]">
             <img :src="product.images[0]" alt="" class="w-full h-full object-contain">
         </div>
         <div class="w-full h-auto flex flex-col">

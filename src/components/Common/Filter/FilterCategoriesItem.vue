@@ -5,21 +5,11 @@
             <IconRight class="transition-all" :class="{activeIcon: showChildren}" />
         </div>
         <ul v-show="showChildren" class="transition-all pt-2 pl-2">
-            <li v-for="children in category.childrens" :key="children.id" class="mb-1">
+            <li v-for="children in category.children" :key="children.id" class="mb-1">
                 <div class="flex justify-between items-center cursor-pointer text-[#666] text-[14px] hover:text-[#16BCDC] transition-all">
                     {{ children.name }}
                 </div>
             </li>
-            <!-- <li class="mb-1">
-                <div class="flex justify-between items-center cursor-pointer text-[#666] text-[14px] hover:text-[#16BCDC] transition-all">
-                    Apple
-                </div>
-            </li>
-            <li class="mb-1">
-                <div class="flex justify-between items-center cursor-pointer text-[#666] text-[14px] hover:text-[#16BCDC] transition-all">
-                    Xiaomi
-                </div>
-            </li> -->
         </ul>
     </li>
 </template>

@@ -14,13 +14,25 @@ import categories from '@/data/categories';
 export default {
     data () {
         return {
-            categories
+            // categories
         }
     },
+
     components: {
         Filter,
         FilterCategoriesItem,
     },
+
+    computed: {
+        categories () {
+            const categories = this.$store.getters.categories.filter((category) => !category.parent)
+            return categories
+        }
+    },
+
+    mounted () {
+        this.$store.dispatch('fetchCategories')
+    }
 
 }
 </script>

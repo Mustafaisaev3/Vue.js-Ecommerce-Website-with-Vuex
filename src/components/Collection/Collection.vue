@@ -31,16 +31,30 @@ export default {
       layout: layout.GRID
     }
   },
+
   components: { 
     CollectionSidebar,
     CollectionHeader,
     CollectionGrid,
     CollectionList
   },
+
   methods: {
     setLayout (value) {
       this.layout = value
     }
+  },
+
+  computed: {
+    products () {
+          const products = this.$store.state.products.products
+          return products
+      }
+  },
+
+  mounted () {
+      this.$store.dispatch('fetchProducts')
+      console.log(this.$store.state.products.products)
   }
 }
 </script>
