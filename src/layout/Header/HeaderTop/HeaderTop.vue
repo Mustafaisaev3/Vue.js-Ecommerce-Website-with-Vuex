@@ -6,11 +6,12 @@
         </div>
     </div>
     <div class="header-search">
-        <div class="w-[600px] h-[50px] flex items-center justify-between bg-white rounded-md overflow-hidden p-1">
+        <div class="w-[600px] h-[50px] flex items-center justify-between bg-white rounded-md  p-1 relative">
             <input type="text" class="w-full h-full px-4 outline-none" placeholder="Search for products ...">
             <button class="!w-[40px] h-[40px] text-white rounded-md flex items-center justify-center bg-[#16bcdc] hover:bg-[#14a8c5] transition-all ">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
+            <!-- <div class="absolute top-[100%] left-0 w-full h-[200px] bg-[#fff] rounded-md"></div> -->
         </div>
     </div>
     <div class="header-top__meta">
@@ -58,6 +59,11 @@ import IconCartOutline from '~icons/mdi/cart-outline'
 import Badge from '@/components/UI/Badge/Badge.vue'
 
 export default {
+    data () {
+        return {
+            searchValue: ''
+        }
+    },
     components: {
         IconAccountOutline,
         IconHeartOutline,
@@ -91,7 +97,7 @@ export default {
                 data: 'LOGIN'
             })
         }
-    }
+    },
 }
 </script>
 

@@ -7,29 +7,17 @@
             <i class="fa-solid fa-bars"></i>
         </div>
         <h4>Shop By Department</h4>
-        <div v-show="showVerticalMenu" class="w-full h-[600px] bg-[#ffffff] absolute top-[100%] left-0">
-            <ul class="w-full h-full px-5">
-                <li>
-                    <a href="#" class="w-full h-[50px] flex items-center text-[#666] text-sm py-0 px-3 border-b-[1px] border-[#e1e1e1] hover:text-[#14a8c5] ">
-                        Computers 1
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="w-full h-[50px] flex items-center text-[#666] text-sm py-0 px-3 border-b-[1px] border-[#e1e1e1] hover:text-[#14a8c5] ">
-                        Printers
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="w-full h-[50px] flex items-center text-[#666] text-sm py-0 px-3 border-b-[1px] border-[#e1e1e1] hover:text-[#14a8c5] ">
-                        PC Components
-                    </a>
-                </li>
+        <div v-show="showVerticalMenu" class="w-full h-auto bg-[#ffffff] absolute top-[100%] left-0 z-10 shadow">
+            <ul class="w-full h-full">
+                <MenuItemVue v-for="category in categories" :key="category._id" :category="category"/>
             </ul>
         </div>
     </div>
 </template>
 
 <script>
+import MenuItemVue from '@/components/Common/MainMenu/MenuItem.vue'
+
 export default {
     data() {
         return {
@@ -37,10 +25,25 @@ export default {
         }
     },
 
+    components: {
+        MenuItemVue
+    },
+
     methods: {
         setShowVerticalMenu () {
             this.showVerticalMenu = !this.showVerticalMenu
         }
+    },
+
+    computed: {
+        categories () {
+            const categories = this.$store.getters.categories.filter((category) => !category.parent)
+            return categories
+        }
+    },
+
+    mounted () {
+        this.$store.dispatch('fetchCategories')
     }
 }
 </script>

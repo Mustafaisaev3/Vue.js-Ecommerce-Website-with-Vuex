@@ -84,7 +84,7 @@ export default {
             commit(UIActionsType.ADD_NOTIFICATION, payload)
             setTimeout(() => {
                 commit(UIActionsType.DELETE_NOTIFICATION)
-            }, 5000)
+            }, 5000) 
         },
     },
 

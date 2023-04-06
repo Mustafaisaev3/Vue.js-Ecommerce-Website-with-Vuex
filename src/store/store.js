@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import ui from './modules/ui'
 import cart from './modules/cart'
 import wishlist from './modules/wishlist'
+import categories from './modules/categories'
 
 // const store = createStore({
 //     state () {
@@ -14,7 +15,8 @@ const store = createStore({
     modules: {
         ui,
         cart,
-        wishlist
+        wishlist,
+        categories
     }
 })
 

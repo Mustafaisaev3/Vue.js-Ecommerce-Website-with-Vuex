@@ -66,6 +66,10 @@ export default {
         openCartPage () {
             this.$router.push('/cart')
         },
+    },
+    
+    unmounted() {
+        this.$store.commit(UIActionsType.CLOSE_DRAWER)
     }
 }
 </script>
