@@ -5,7 +5,7 @@
         <div class="carousel h-auto flex gap-2">
             <Swiper
                 :modules="modules"
-                :slides-per-view="5"
+                :breakpoints="breakpoints"
                 :space-between="20"
                 navigation
                 autoplay
@@ -13,7 +13,7 @@
                 <SwiperSlide v-for="blog in blog_posts" :key="blog.id" class=" pb-5">
                     <div class="card w-full h-auto relative p-0 overflow-hidden hover:shadow-lg">
                         <div class="w-full h-[200px] overflow-hidden">
-                            <img :src="blog.images[0]" alt="blog_image" class="object-cover">
+                            <img :src="blog.images[0]" alt="blog_image" class="object-cover w-full">
                         </div>
                         <div class="w-full p-[20px] flex flex-col gap-2 ">
                             <h2 class="text-left font-semibold">{{ blog.title }}</h2>
@@ -42,6 +42,7 @@
 <script>
 import SectionTitle from '@/components/SectionTitle.vue';
 import BadgeBlue from '@/components/Badge/BadgeBlue.vue'
+import {BlogSliderBreakpoints} from '@/utils/swiperBreakpoints';
 import blog from '@/data/blog';
 // import Swiper core and required modules
 import { Navigation, Autoplay  } from 'swiper';
@@ -60,6 +61,13 @@ export default {
             blog_posts: blog
         }
     },
+
+    computed: {
+        breakpoints () {
+            return BlogSliderBreakpoints
+        }
+    },
+
     components: {
         BadgeBlue,
         SectionTitle,

@@ -27,8 +27,8 @@ export default {
         modalData: null,
 
         // Drawer
-        showDrawer: false,
-        drawerView: '',
+        showDrawer: true,
+        drawerView: 'MOBILE_MENU_VIEW',
         drawerData: null,
 
         // Notification

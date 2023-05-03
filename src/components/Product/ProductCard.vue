@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div 
-        class="card max-w-[250px] w-full h-[330px] relative" 
+        class="card w-full h-[330px] relative" 
         :class="{'rounded-b-[0]': showBtn}" 
         @mouseenter="toggleShowBtn" 
         @mouseleave="toggleShowBtn"

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[100%] h-[40px] border-b-[1px] border-[rgba(255,255,255,.15)] ">
+  <div class="w-[100%] h-[40px] border-b-[1px] border-[rgba(255,255,255,.15)] hidden sm:hidden md:hidden lg:block">
     <div class="container flex items-center justify-between">
         <div class="w-auto h-10">
             <ul class="h-full flex gap-4 items-center">

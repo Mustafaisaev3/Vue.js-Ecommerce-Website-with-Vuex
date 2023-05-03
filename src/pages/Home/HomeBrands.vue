@@ -1,7 +1,20 @@
 <template>
   <div class="my-[70px] bg-[#0068c9]">
-    <div class="container w-full h-auto flex py-4 gap-2">
-        <div class="rounded-lg overflow-hidden">
+    <div class="container w-full h-auto flex items-center py-4 gap-2">
+        <Swiper
+            :modules="modules"
+            :breakpoints="breakpoints"
+            :space-between="20"
+            navigation
+            autoplay
+        >
+            <SwiperSlide v-for="blog in 8" :key="blog.id" class="">
+                <div class="rounded-lg overflow-hidden h-full">
+                    <img :src="require('@/assets/images/brands/brand_1.avif')" alt="" class="w-full h-full">
+                </div>
+            </SwiperSlide>
+        </Swiper>
+        <!-- <div class="rounded-lg overflow-hidden">
             <img :src="require('@/assets/images/brands/brand_1.avif')" alt="">
         </div>
         <div class="rounded-lg overflow-hidden">
@@ -24,14 +37,35 @@
         </div>
         <div class="rounded-lg overflow-hidden">
             <img :src="require('@/assets/images/brands/brand_2.avif')" alt="">
-        </div>
+        </div> -->
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import { BransSliderBreakpoints } from '@/utils/swiperBreakpoints';
+import blog from '@/data/blog';
+// import Swiper core and required modules
+import { Navigation, Autoplay  } from 'swiper';
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
+export default {
+    computed: {
+        breakpoints () {
+            return BransSliderBreakpoints
+        }
+    },
+
+    components: {
+        Swiper, 
+        SwiperSlide,
+    }
 }
 </script>
 

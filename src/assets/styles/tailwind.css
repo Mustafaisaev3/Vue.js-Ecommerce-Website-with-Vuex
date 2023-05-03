@@ -8,7 +8,7 @@
         background: #f3f5f6;
     }
     .container {
-    	@apply !max-w-[1400px] my-auto mx-auto
+    	@apply !max-w-[1400px] my-auto mx-auto px-5
     	/* @apply max-w-[1300px] my-auto mx-auto */
     }
 

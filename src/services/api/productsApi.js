@@ -5,4 +5,9 @@ export const ProductApi = {
         const { data } = await axios.get('/products');
         return data.data;
     },  
+
+    async fetchProduct (id) {
+        const { data } = await axios.get(`/product/${id}`);
+        return data.data;
+    }
 }

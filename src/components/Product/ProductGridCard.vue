@@ -9,7 +9,7 @@
         </div>
         <div class="w-full h-auto flex flex-col">
             <h4 class="text-[14px] text-[#0068c9] pb-2 min-h-[50px]">
-                <a href="#">{{ product.title }}</a>
+                <a :href="`/product/${product._id}`">{{ product.title }}</a>
             </h4>
             <div class="text-[16px] text-[#222] pb-4">£{{ product.price }}</div>
             <div class="flex flex-col gap-2 flex-1">

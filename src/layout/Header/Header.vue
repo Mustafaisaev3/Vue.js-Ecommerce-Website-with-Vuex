@@ -1,5 +1,5 @@
 <template>
-   <div class="w-[100%] h-[200px] min-h-[110px] bg-[#263c97]">
+   <div class="w-[100%] h-auto min-h-[110px] bg-[#263c97]">
       <HeaderTopbar />
       <HeaderTop />
       <HeaderBottom />

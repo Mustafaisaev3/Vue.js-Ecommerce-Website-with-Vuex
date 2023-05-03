@@ -25,7 +25,11 @@
             <div v-show="activeTab === tabs[1]" class="additional-information w-full h-auto">
                 <table class="w-full">
                     <tbody>
-                        <tr class="flex justify-between items-center border-b border-[#e5e5e5] ">
+                        <tr v-for="productCharacteristic in product.characteristics" :key="productCharacteristic._id" class="flex justify-between items-center border-b border-[#e5e5e5] ">
+                            <th class="w-full text-left p-2">{{ productCharacteristic.characteristic }}</th>
+                            <td class="w-full text-left p-2">{{ productCharacteristic.text }}</td>
+                        </tr>
+                        <!-- <tr class="flex justify-between items-center border-b border-[#e5e5e5] ">
                             <th class="w-full text-left p-2">Color</th>
                             <td class="w-full text-left p-2">Red</td>
                         </tr>
@@ -36,11 +40,7 @@
                         <tr class="flex justify-between items-center border-b border-[#e5e5e5] ">
                             <th class="w-full text-left p-2">Color</th>
                             <td class="w-full text-left p-2">Red</td>
-                        </tr>
-                        <tr class="flex justify-between items-center border-b border-[#e5e5e5] ">
-                            <th class="w-full text-left p-2">Color</th>
-                            <td class="w-full text-left p-2">Red</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -71,6 +71,8 @@ export default {
             activeTab: 'Description'
         }
     },
+
+    props: ['product'],
 
     methods: {
         handleTabClick (tab) {

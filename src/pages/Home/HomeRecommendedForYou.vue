@@ -21,7 +21,7 @@
   <script>
   import SectionTitle from '@/components/SectionTitle.vue';
   import ProductCard from '@/components/Product/ProductCard.vue'
-  import swiperBreakpoints from '@/utils/swiperBreakpoints';
+  import {NormalSliderBreakpoints} from '@/utils/swiperBreakpoints';
   import products from '@/data/products';
   
   // import Swiper core and required modules
@@ -51,7 +51,7 @@
 
       computed: {
         breakpoints () {
-            return swiperBreakpoints
+            return NormalSliderBreakpoints
         }
       },
   

@@ -4,18 +4,19 @@
     <div class="carousel">
         <Swiper
             :modules="modules"
-            :slides-per-view="2"
+
             :space-between="30"
+            :breakpoints="breakpoints"
             navigation
             autoplay
         >
             <SwiperSlide v-for="product in products" :key="product.id">
-                <div class="card w-full h-[300px] flex gap-4 relative">
-                    <div class="w-[350px] h-full overflow-hidden">
+                <div class="card w-full h-auto sm:h-auto md:h-[400px] lg:h-[300px] flex flex-col items-center sm:flex-col md:flex-row lg:flex-row gap-4 relative">
+                    <div class="w-[350px] h-full flex items-center overflow-hidden">
                         <img :src="product.images[0]" alt="" class="w-full h-full object-cover">
                     </div>
-                    <div class="w-full h-full flex flex-col items-start justify-center gap-4 pr-[50px]">
-                        <h4 class="text-[14px] text-[#0068c9]  font-semibold">
+                    <div class="w-full h-full flex flex-col items-center sm:items-center md:items-start lg:items-start justify-center gap-4 md:pr-[50px] lg:pr-[50px]">
+                        <h4 class="text-[14px] text-[#0068c9] font-semibold">
                             <a href="#">{{ product.title }}</a>
                         </h4>
                         <p class="text-left text-[14px]">Designed by Hans J. Wegner in 1949 as one of the first models created especially for Carl Hansen & Son,...</p>
@@ -49,6 +50,7 @@
 import SectionTitle from '@/components/SectionTitle.vue';
 import BadgeGreen from '@/components/Badge/BadgeGreen.vue';
 import BadgeRedVue from '@/components/Badge/BadgeRed.vue';
+import { TwoColumnSliderBreakpoints } from '@/utils/swiperBreakpoints';
 import products from '@/data/products';
 // import Swiper core and required modules
 import { Navigation, Autoplay  } from 'swiper';
@@ -74,6 +76,12 @@ export default {
         SwiperSlide,
         BadgeGreen,
         BadgeRedVue
+    },
+
+    computed: {
+        breakpoints () {
+            return TwoColumnSliderBreakpoints
+        }   
     },
 
     methods: {

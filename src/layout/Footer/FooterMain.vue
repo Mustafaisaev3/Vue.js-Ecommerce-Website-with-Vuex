@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto grid grid-cols-7 gap-4 py-[60px]">
+  <div class="w-full h-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-4 py-[60px]">
     <div class="col-span-2">
         <h3 class="text-white pb-[25px] text-[18px] capitalize">Download App</h3>
         <div class="pb-[25px] text-[14px] text-[#999999]">
@@ -29,112 +29,114 @@
             </div>
         </div>
     </div>
-    <div class="">
-        <h3 class="text-white pb-[25px] text-[18px] capitalize">My Account</h3>
-        <ul class="flex flex-col gap-4">
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Search</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Product Support</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Checkout</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Shopping Cart</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Wishlist</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>New Arrivals</div>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <div class="flex gap-[30px] flex-wrap sm:flex-wrap md:flex-nowrap lg:flex-nowrap col-span-3">
+        <div class="">
+            <h3 class="text-white pb-[25px] text-[18px] capitalize">My Account</h3>
+            <ul class="flex flex-col gap-4">
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Search</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Product Support</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Checkout</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Shopping Cart</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Wishlist</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>New Arrivals</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    <div class="">
-        <h3 class="text-white pb-[25px] text-[18px] capitalize">Customer Service</h3>
-        <ul class="flex flex-col gap-4">
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Help Center</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Contact Us</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Report Abuse</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Submit a Dispute</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Policies & Rules</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Online Shopping</div>
-                </a>
-            </li>
-        </ul>
-    </div>
+        <div class="">
+            <h3 class="text-white pb-[25px] text-[18px] capitalize">Customer Service</h3>
+            <ul class="flex flex-col gap-4">
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Help Center</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Contact Us</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Report Abuse</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Submit a Dispute</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Policies & Rules</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Online Shopping</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    <div class="">
-        <h3 class="text-white pb-[25px] text-[18px] capitalize">Hot Categories</h3>
-        <ul class="flex flex-col gap-4">
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Laptop & Computer (17)</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Speaker & Audio (8)</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Cellphone (11)</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Video Game (18)</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Accessories (12)</div>
-                </a>
-            </li>
-            <li class="menu_item">
-                <a href="#" class="w-full h-full">
-                    <div>Delivery & Dispatch</div>
-                </a>
-            </li>
-        </ul>
+        <div class="">
+            <h3 class="text-white pb-[25px] text-[18px] capitalize">Hot Categories</h3>
+            <ul class="flex flex-col gap-4">
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Laptop & Computer (17)</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Speaker & Audio (8)</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Cellphone (11)</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Video Game (18)</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Accessories (12)</div>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="w-full h-full">
+                        <div>Delivery & Dispatch</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
 

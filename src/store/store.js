@@ -4,6 +4,7 @@ import cart from './modules/cart'
 import wishlist from './modules/wishlist'
 import categories from './modules/categories'
 import products from './modules/products'
+import mainBanner from './modules/mainBanner'
 
 
 const store = createStore({
@@ -12,7 +13,8 @@ const store = createStore({
         cart,
         wishlist,
         categories,
-        products
+        products,
+        mainBanner
     }
 })
 

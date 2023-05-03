@@ -10,40 +10,7 @@ export const CartActionsType = {
 
 export default {
     state: {
-        products: [
-            // {
-            //     id: Math.floor(Math.random()),
-            //     title: 'Game Console Controller + USB 3.0 Cable',
-            //     price: 99.00,
-            //     images: [
-            //         require('@/assets/images/products/consal1.png'),
-            //         require('@/assets/images/products/consal2.png'),
-            //         require('@/assets/images/products/consal3.png')
-            //     ]
-            // },
-            // {
-            //     id: Math.floor(Math.random()),
-            //     title: 'Vivo IQOO 7 Legend - 4000 MAh Lithium-Polymer',
-            //     price: 210.00,
-            //     images: [
-            //         require('@/assets/images/products/IQOO1.webp'),
-            //         require('@/assets/images/products/IQOO2.webp'),
-            //         require('@/assets/images/products/IQOO3.webp'),
-            //         require('@/assets/images/products/IQOO4.webp'),
-            //         require('@/assets/images/products/IQOO5.webp'),
-            //     ]
-            // },
-            // {
-            //     id: Math.floor(Math.random()),
-            //     title: 'Stainless Steel Dual Basket ProFry',
-            //     price: 520.00,
-            //     images: [
-            //         require('@/assets/images/products/ProFry1.webp'),
-            //         require('@/assets/images/products/ProFry2.webp'),
-            //         require('@/assets/images/products/ProFry3.webp'),
-            //     ]
-            // },
-        ],
+        products: [],
     },
 
     mutations: {
@@ -119,13 +86,13 @@ export default {
         deleteProductFromCart ({ commit }, payload) {
             commit(CartActionsType.DELETE_FROM_CART, payload)
         },
-        increaseItemInCart ({commit}, payload) {
+        increaseItemInCart ({ commit }, payload) {
             commit(CartActionsType.INCREASE_ITEM_IN_CART, payload)
         },
-        decreaseItemInCart ({commit}, payload) {
+        decreaseItemInCart ({ commit }, payload) {
             commit(CartActionsType.DECREASE_ITEM_IN_CART, payload)
         },
-        clearShoppingCart ({commit}) {
+        clearShoppingCart ({ commit }) {
             commit(CartActionsType.CLEAR_SHOPPING_CART)
         }
     }

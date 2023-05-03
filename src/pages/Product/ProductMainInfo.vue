@@ -3,14 +3,14 @@
     <div class="min-w-[600px] h-full flex">
         <ImageMagnifier :src="activeImage"
             :zoom-src="activeImage"
-            :width="800"
-            :height="700"
+            :width="500"
+            :height="500"
             zoom-width="500"
             zoom-height="500" 
         />
         <div class="w-[80px] h-full flex flex-col gap-2">
             <div 
-                v-for="image in images" 
+                v-for="image in product.images" 
                 :key="image" 
                 class="w-[80px] h-[80px] overflow-hidden rounded-sm border-[1px] border-[#ebebeb]" 
                 @click="() => setActiveImage(image)"
@@ -22,17 +22,21 @@
     </div>
     <div class="product-details h-full grow px-5">
         <h1 class="text-[#0068c9] text-[24px] mb-[15px]">
-            <a href="#">Zoom Samsung Galaxy International Vs</a>
+            <a href="#">{{ product.title }}</a>
         </h1>
         <div class="price pb-[25px] mb-[25px] border-b-[1px] border-[#ebebeb]">
             <p class="text-[14px] text-[#cc1414] mb-10px">Discount: $9.00 (14%) </p>
             <span class="text-[24px] text-[#222222]">
-                <span class="text-[#cc1414]">$46.50</span>
-                <span class="text-[16px] text-[#a4a4a4] pl-2">$53.97</span>
+                <div v-if="product.salePrice" class="flex">
+                    <span class="text-[#cc1414]">${{ product.salePrice }}</span>
+                    <span class="text-[16px] text-[#a4a4a4] pl-2">${{ product.price }}</span>
+                </div>
+                <span v-else class="text-[24px] text-[#222222]">${{ product.price }}</span>
             </span>
         </div>
         <div class="product-description text-[14px] text-[#666] mb-[30px]">
-            Designed by Hans J. Wegner in 1949 as one of the first models created especially for Carl Hansen & Son, and produced since 1950. The last of a series of chairs wegner designed based on inspiration from antique Chinese armchairs....View more
+            {{ product.description }}
+            <!-- Designed by Hans J. Wegner in 1949 as one of the first models created especially for Carl Hansen & Son, and produced since 1950. The last of a series of chairs wegner designed based on inspiration from antique Chinese armchairs....View more -->
         </div>
         <div class="add-to-cart-block flex gap-2 mb-[20px]">
             <div class="counter w-[150px] h-[50px] flex items-center border">
@@ -61,7 +65,8 @@
             </li>
             <li class="w-full flex">
                 <span class="w-[100px]">Availability:</span>
-                <span class="text-[red]">Many in stock</span>
+                <!-- <span class="text-[red]">Many in stock</span> -->
+                <span class="text-[15px]">{{ product.stock }}</span>
             </li>
         </ul>
     </div>
@@ -88,11 +93,13 @@ export default {
     data () {
         return {
             images,
-            activeImage: images[0],
+            activeImage: this.$props.product.images[0],
             productCount: 0,
             showZoom: false
         }
     },
+
+    props: ['product'],
 
     components: {
         Button,
