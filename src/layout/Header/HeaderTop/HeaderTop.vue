@@ -1,11 +1,11 @@
 <template>
   <div class="container h-auto min-h-[100px] py-3 sm:py-3 md:py-3 lg:pt-0 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 items-center justify-items-center gap-3">
-    <div class="header-logo col-span-1">
-        <div class="w-auto h-auto text-[30px] text-white">
+    <div class="header-logo w-full col-span-1">
+        <div class="w-full h-auto text-[30px] text-white">
             <a href="#" class="cursor-pointer" @click="this.$router.push('/')">E-COMMERCE</a>
         </div>
     </div>
-    <div class="header-search w-full max-w-[600px] col-span-2">
+    <div class="header-search w-full col-span-2">
         <div class="w-[100%] h-[50px] flex items-center justify-between flex-1 bg-white rounded-md  p-1 relative">
             <input type="text" class="w-full h-full px-4 outline-none" placeholder="Search for products ...">
             <button class="!w-[40px] h-[40px] text-white rounded-md flex items-center justify-center bg-[#16bcdc] hover:bg-[#14a8c5] transition-all ">
@@ -14,7 +14,7 @@
             <!-- <div class="absolute top-[100%] left-0 w-full h-[200px] bg-[#fff] rounded-md"></div> -->
         </div>
     </div>
-    <div class="header-top__meta col-span-2">
+    <div class="header-top__meta w-full col-span-2">
         <ul class="flex items-center justify-center sm:justify-center md:justify-center lg:justify-end gap-6">
             <li class="flex items-center cursor-pointer">
                 <div class="text-white text-[40px] relative" @click="openLogin">

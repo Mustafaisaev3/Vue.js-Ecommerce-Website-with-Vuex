@@ -1,7 +1,7 @@
 <template>
   <div class="container my-[70px]">
     <div class="w-full h-auto">
-        <SectionTitle :title="'From The Blog'" />
+        <SectionTitle :title="blog_posts.title" />
         <div class="carousel h-auto flex gap-2">
             <Swiper
                 :modules="modules"
@@ -10,10 +10,10 @@
                 navigation
                 autoplay
             >
-                <SwiperSlide v-for="blog in blog_posts" :key="blog.id" class=" pb-5">
+                <SwiperSlide v-for="blog in blog_posts.items" :key="blog.id" class=" pb-5">
                     <div class="card w-full h-auto relative p-0 overflow-hidden hover:shadow-lg">
                         <div class="w-full h-[200px] overflow-hidden">
-                            <img :src="blog.images[0]" alt="blog_image" class="object-cover w-full">
+                            <img :src="blog.image" alt="blog_image" class="object-cover w-full h-full">
                         </div>
                         <div class="w-full p-[20px] flex flex-col gap-2 ">
                             <h2 class="text-left font-semibold">{{ blog.title }}</h2>
@@ -21,7 +21,7 @@
                                 <div class="text-[#4f4f4f]">POST BY <span class="text-[#16bcdc]">{{ blog.author }}</span></div>
                                 <div class="text-[#4f4f4f]">{{ blog.date }}</div>
                             </div>
-                            <div class="text-sm text-left text-[#4f4f4f] border-b-[1px] border-[#d2d2d2] pb-[20px]">{{ blog.text }}</div>
+                            <div class="text-sm text-left text-[#4f4f4f] border-b-[1px] border-[#d2d2d2] pb-[20px]">{{ blog.description }}</div>
                         </div>
                         <div class="w-full h-auto px-[20px] pb-[20px] text-left ">
                             <a href="#" class="text-[#4f4f4f] hover:text-[#16bcdc] transition-all">Read More</a>
@@ -29,7 +29,7 @@
 
                         <!-- Badge -->
                         <div class="absolute top-0 left-0 p-[20px]">
-                            <BadgeBlue :text="'CAMERAS'" />
+                            <BadgeBlue :text="blog.category.title" />
                         </div>
                     </div>
                 </SwiperSlide>
@@ -58,9 +58,11 @@ export default {
     data () {
         return {
             modules: [Navigation, Autoplay ],
-            blog_posts: blog
+            blog_posts: this.$props.data
         }
     },
+
+    props: ['data'],
 
     computed: {
         breakpoints () {

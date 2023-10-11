@@ -1,6 +1,6 @@
 <template>
-  <section class="main-slidershow container w-full h-[400px] py-8 grid grid-cols-3 gap-8">
-    <div class="max-w-[900px] h-auto rounded-[30px] overflow-hidden col-span-3 sm:col-span-3 md:col-span-3 lg:col-span-2">
+  <section class="main-slidershow container w-full h-[450px] py-8 grid grid-cols-5 gap-8">
+    <div class="max-w-auto h-auto rounded-[30px] overflow-hidden col-span-5 sm:col-span-5 md:col-span-5 lg:col-span-3">
         <Carousel class="w-full h-full overflow-hidden relative" :items-to-show="1" :autoplay="3000">
             <Slide class="w-full h-full relative" v-for="slide in mainBanner.slides" :key="slide">
                 <img class="w-full h-full object-cover " :src="slide.image" >
@@ -24,12 +24,12 @@
         </Carousel>
     </div>
     
-    <div class="w-auto h-full hidden sm:hidden md:hidden lg:grid grid-cols-2 grid-rows-2 gap-4 col-span-1">
+    <div class="w-auto h-full hidden sm:hidden md:hidden lg:grid grid-cols-2 grid-rows-2 gap-4 col-span-2">
         <div v-for="banner in mainBanner.banners" :key="banner"  class="banner-item w-full h-full rounded-[30px] bg-[#cc56ff] relative overflow-hidden">
             <img class="banner-image w-full h-full object-cover transition-all" :src="banner.image" />
-            <div class="w-full h-full flex flex-col items-start justify-between absolute top-0 left-0 p-[30px]">
-                <h3 class="text-white text-[25px] text-left leading-7">Phone<br> Galaxy S20</h3>
-                <p class="text-white text-[18px] text-left pt-5">Cellphone & Tablets</p>
+            <div class="w-full h-full flex flex-col items-start absolute top-0 left-0 p-[20px]">
+                <h3 class="text-white text-[23px] text-left leading-7">Phone<br> Galaxy S20</h3>
+                <p class="text-white text-[18px] text-left pt-4">Cellphone & Tablets</p>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@ export default {
                 let isProductInCart = false
                 state.products.map((productItem) => {
                     console.log(productItem.product)
-                    if(productItem.product.id === product.id) {
+                    if(productItem.product._id === product._id) {
                         isProductInCart = true
                         productItem.quantity = productItem.quantity + quantity
                     } 

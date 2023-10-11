@@ -1,6 +1,6 @@
 <template>
   <div class="container my-[50px]"> 
-    <SectionTitle :title="'Top Deals Of The Day'" :url="'/about'" />
+    <SectionTitle :title="data.name" :url="'/about'" />
     <div class="carousel">
         <Swiper
             :modules="modules"
@@ -10,7 +10,7 @@
             navigation
             autoplay
         >
-            <SwiperSlide v-for="product in products" :key="product.id">
+            <SwiperSlide v-for="product in data.items" :key="product.id">
                 <div class="card w-full h-auto sm:h-auto md:h-[400px] lg:h-[300px] flex flex-col items-center sm:flex-col md:flex-row lg:flex-row gap-4 relative">
                     <div class="w-[350px] h-full flex items-center overflow-hidden">
                         <img :src="product.images[0]" alt="" class="w-full h-full object-cover">
@@ -69,7 +69,10 @@ export default {
             modules: [Navigation, Autoplay ],
             products
         }
-    },  
+    },
+    
+    props: ['data'],
+
     components: {
         SectionTitle,
         Swiper, 

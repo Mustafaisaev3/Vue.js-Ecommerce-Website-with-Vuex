@@ -53,6 +53,9 @@ export const BlogSliderBreakpoints =   {
 }
 
 export const BransSliderBreakpoints =   { 
+    300 : { 
+        slidesPerView : 2
+    }, 
     576 : { 
         slidesPerView : 3
     }, 

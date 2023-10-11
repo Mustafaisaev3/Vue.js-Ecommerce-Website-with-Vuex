@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-full flex flex-col bg-[#263c97] py-3  px-7">
+    <div class="w-full h-full flex flex-col bg-[#263c97] py-3  px-7" id="mobile-menu">
       <div class="cart-header !h-[60px] w-full flex items-center justify-center relative">
         <IconClose style="color: white; font-size: 20px; cursor: pointer; position: absolute; left: 0; top: 20px;" @click="closeMenu"/>
         <div class="text-white text-[30px] font-semibold">E-COMMERCE</div>
@@ -28,6 +28,7 @@ import IconSearch from '~icons/mdi/magnify'
 import IconDown from '~icons/mdi/menu-down'
 import { UIActionsType } from '@/store/modules/ui';
 import MobileMenuDropdown from './MobileMenuDropdown.vue';
+import useClickOutside from '@/utils/useClickOutside'
 
 export default {
 data () {
@@ -58,6 +59,10 @@ methods: {
 },
 
 mounted () {
+    useClickOutside('mobile-menu', () => {
+        this.$store.commit(UIActionsType.CLOSE_DRAWER)
+        this.$store.commit(UIActionsType.SET_DRAWER_VIEW, '')
+    })
     this.$store.dispatch('fetchCategories')
 }
 

@@ -8,9 +8,9 @@
             navigation
             autoplay
         >
-            <SwiperSlide v-for="blog in 8" :key="blog.id" class="">
-                <div class="rounded-lg overflow-hidden h-full">
-                    <img :src="require('@/assets/images/brands/brand_1.avif')" alt="" class="w-full h-full">
+            <SwiperSlide v-for="brand in data.items" :key="brand._id" class="h-full">
+                <div class="rounded-lg overflow-hidden h-full w-full">
+                    <img :src="brand.image" :alt="brand.image" class="w-full h-full">
                 </div>
             </SwiperSlide>
         </Swiper>
@@ -56,11 +56,18 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 export default {
-    computed: {
-        breakpoints () {
-            return BransSliderBreakpoints
+    data () {
+        return {
+            breakpoints: BransSliderBreakpoints
         }
     },
+    // computed: {
+    //     breakpoints () {
+    //         return BransSliderBreakpoints
+    //     }
+    // },
+
+    props: ['data'],
 
     components: {
         Swiper, 

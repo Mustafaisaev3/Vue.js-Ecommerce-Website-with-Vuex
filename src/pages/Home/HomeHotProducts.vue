@@ -1,6 +1,6 @@
 <template>
   <div class="container mb-[25px]">
-    <SectionTitle :title="'Other some product'" :url="'/about'" />
+    <SectionTitle :title="data.title || data.name" :url="'/about'" />
     <div class="carousel h-[400px] flex gap-5" >
         <Swiper
             :modules="modules"
@@ -9,7 +9,7 @@
             autoplay
             :breakpoints="breakpoints"
         >
-            <SwiperSlide v-for="product in products" :key="product.id">
+            <SwiperSlide v-for="product in products.items" :key="product._id">
                 <ProductCard :product="product" />
             </SwiperSlide>
         </Swiper>
@@ -38,10 +38,13 @@ export default {
     data(){
         return{
             showBtn: false,
-            products,
+            products: this.$props.data,
             modules: [Navigation, Autoplay ],
         }
     },  
+
+    props: ['data'],
+
     components: {
         SectionTitle,
         ProductCard,
