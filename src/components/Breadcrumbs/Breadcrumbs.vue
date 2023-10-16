@@ -1,22 +1,27 @@
 <template>
-  <div class="p-[20px]"> 
+  <div class="py-[20px]"> 
     <ul class="flex gap-1">
-        <li>
-            <span class="text-[#999] capitalize">Home</span>
+        <li v-for="(crumb, id) in crumbs" :key="id">
+            <span class="text-[#999] capitalize">{{ crumb }}</span>
         </li>
-        <li>
+        <!-- <li>
             <span class="text-[#999] capitalize">Cellphone</span>
         </li>
         <li>
             <span class="active capitalize">Zoom Samsung Galaxy International Vs</span>
-        </li>
+        </li> -->
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+    data () {
+        return {
 
+        }
+    },
+    props: ['crumbs'],
 }
 </script>
 

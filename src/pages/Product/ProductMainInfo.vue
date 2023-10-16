@@ -44,7 +44,7 @@
                 <div class="w-full h-full flex items-center justify-center text-[15px]">{{ productCount }}</div>
                 <button class="w-full h-full flex items-center justify-center text-[20px] cursor-pointer" @click="decrementProductCount">-</button>
             </div>
-            <Button :buttonType="'primary rounded-sm'">ADD TO CART</Button>
+            <Button :buttonType="'primary rounded-sm'" @click="add_to_cart">ADD TO CART</Button>
         </div>
         <div class="compare-wishlist flex gap-4 mb-[30px]">
             <div class="text-[#666] text-[14px] hover:text-[#16bcdc] transition-all cursor-pointer">Add To Compare</div>
@@ -77,6 +77,7 @@
 import Button from '@/components/UI/Button/Button.vue'
 // import {zoomImageOnHover} from '@/utils/zoomImageOnHover.js'
 import ImageMagnifier from '@/components/UI/ImageMagnifier/ImageMagnifier.vue'
+import notificationTypes from '@/types/notification-types'
 
 
 
@@ -110,20 +111,33 @@ export default {
         setActiveImage (image) {
             return this.activeImage = image
         },
+
         incrementProductCount () {
             this.productCount += 1
         },
+
         decrementProductCount () {
             if(this.productCount == 0){
                 return
             }
             this.productCount -= 1
         },
+
         showZoomContainer () {
             this.showZoom = true
         },
+
         noneZoomContainer () {
             this.showZoom = false
+        },
+
+        add_to_cart() {
+            this.$store.dispatch('addProductToCart', {
+                product: this.product,
+                quantity: this.productCount
+            })
+
+            this.$store.dispatch('addNotification', {type: notificationTypes.SUCCESS, text: 'Product added to cart'})
         },
     }
 }

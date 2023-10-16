@@ -77,7 +77,7 @@ export default {
     methods: {
         handleTabClick (tab) {
             this.activeTab = tab
-        }
+        },
     }
 }
 </script>

@@ -21,6 +21,9 @@ const routes = [
         path: '/product/:id',
         name:'Product',
         component: Product,
+        meta: {
+            breadcrumbs: ['home', 'products']
+        }
     },
     {
         path: '/cart',

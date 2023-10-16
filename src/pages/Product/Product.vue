@@ -1,6 +1,6 @@
 <template>
   <div class="container ">
-    <Breadcrumbs />
+    <Breadcrumbs :crumbs="breadcrumb" />
     <div v-if="product">
       <ProductMainInfo :product="product" />
       <ProductAdditionalInformation :product="product" />
@@ -37,6 +37,9 @@ export default {
     product() {
       console.log(this.$store)
       return this.$store.getters.product
+    },
+    breadcrumb() {
+      return this.$route.meta.breadcrumbs
     }
   },
 
