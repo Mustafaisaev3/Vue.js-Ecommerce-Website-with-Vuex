@@ -4,7 +4,7 @@
         <div class="active w-full h-full capitalize text-[20px] text-center font-semibold pb-2 cursor-pointer">Login</div>
         <div class="w-full h-full capitalize text-[20px] text-center font-semibold pb-2 cursor-pointer" @click="openModal">Register</div>
     </header>
-    <form action="#">
+    <form action="#" @submit="handleLogin">
         <div class="login-form">
             <div class="login-form__field">
                 <Input required v-model="email" :label="'Email'" placeholder="Email" :error="v$.email.$error && v$.email.$errors[0].$message" />
@@ -20,7 +20,7 @@
                 <div>Forgot your password?</div>
             </div>
             <div class="buttons mt-5">
-                <Button :buttonType="'primary'" class="rounded-sm" @click="handleLogin">LOGIN</Button>
+                <Button :buttonType="'primary'" class="rounded-sm" type="submit">LOGIN</Button>
                 <p class="or">
                     <span>or</span>
                 </p>
@@ -72,6 +72,16 @@ export default {
         handleLogin(e) {
             e.preventDefault()
             this.v$.$validate()
+            if (this.v$.$errors.length > 0) {
+                console.log('error')
+            } else {
+                const payload = {
+                    email: this.$data.email,
+                    password: this.$data.password,
+                }
+                this.$store.dispatch('login', payload)
+                
+            }
         }
     }
 }

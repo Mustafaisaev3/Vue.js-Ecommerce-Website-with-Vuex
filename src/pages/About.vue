@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="text-red">
+  <div class="container">
     About
   </div>
 </template>

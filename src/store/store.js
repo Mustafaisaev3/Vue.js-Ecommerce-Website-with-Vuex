@@ -5,6 +5,7 @@ import wishlist from './modules/wishlist'
 import categories from './modules/categories'
 import products from './modules/products'
 import mainBanner from './modules/mainBanner'
+import user from './modules/user'
 
 
 const store = createStore({
@@ -14,7 +15,8 @@ const store = createStore({
         wishlist,
         categories,
         products,
-        mainBanner
+        mainBanner,
+        user
     }
 })
 

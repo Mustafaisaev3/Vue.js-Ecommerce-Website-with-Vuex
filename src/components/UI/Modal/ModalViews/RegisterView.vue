@@ -4,7 +4,7 @@
           <div class="w-full h-full capitalize text-[20px] text-center font-semibold pb-2 cursor-pointer " @click="openModal">Login</div>
           <div class="active w-full h-full capitalize text-[20px] text-center font-semibold pb-2 cursor-pointer">Register</div>
       </header>
-      <form action="#">
+      <form action="#" @submit="handleRegister">
           <div class="login-form">
               <div class="login-form__field">
                   <Input required v-model="firstName" :label="'First name'" placeholder="First name" :error="v$.firstName.$error && v$.firstName.$errors[0].$message" />
@@ -23,7 +23,7 @@
               </div>
 
               <div class="buttons mt-5">
-                  <Button :buttonType="'primary'" class="rounded-sm" @click="submitForm">CREATE NEW ACCOUNT</Button>
+                  <Button :buttonType="'primary'" class="rounded-sm">CREATE NEW ACCOUNT</Button>
                   <p class="or">
                       <span>or</span>
                   </p>
@@ -78,13 +78,19 @@
                 data: 'LOGIN'
             })
         },
-        submitForm (e) {
+        handleRegister (e) {
             e.preventDefault()
             this.v$.$validate()
-            if (this.v$.$error){
-                console.log('Error')
+            if (this.v$.$errors.length > 0) {
+                console.log('error')
             } else {
-                console.log('Success')
+                const payload = {
+                    name: this.$data.firstName,
+                    email: this.$data.email,
+                    password: this.$data.password,
+                }
+                this.$store.dispatch('register', payload)
+                
             }
         }
       }

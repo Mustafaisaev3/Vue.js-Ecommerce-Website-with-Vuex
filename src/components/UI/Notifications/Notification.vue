@@ -1,6 +1,6 @@
 <template>
   <teleport to="body" >
-    <div v-if="isNotifications" class="w-[300px] h-[500px] fixed top-5 right-5 z-10">
+    <div v-if="isNotifications" class="w-[300px] h-auto fixed top-5 right-5 z-10">
         <component v-for="notification in notifications" :key="notification" :is="notificationsTypes[notification.type]" :data="notification"></component>
     </div>
   </teleport>

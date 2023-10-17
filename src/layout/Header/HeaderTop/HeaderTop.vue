@@ -16,7 +16,15 @@
     </div>
     <div class="header-top__meta w-full col-span-2">
         <ul class="flex items-center justify-center sm:justify-center md:justify-center lg:justify-end gap-6">
-            <li class="flex items-center cursor-pointer">
+            <li v-if="isAuth" class="flex items-center cursor-pointer">
+                <div class="text-white text-[40px] relative">
+                    <IconAccountOutline />
+                </div>
+                <div class="pl-2 hidden sm:hidden md:block lg:block">
+                    <span class="text-white block">{{user.email}}</span>
+                </div>
+            </li>
+            <li v-if="!isAuth" class="flex items-center cursor-pointer">
                 <div class="text-white text-[40px] relative" @click="openLogin">
                     <IconAccountOutline />
                 </div>
@@ -71,6 +79,12 @@ export default {
         Badge
     },
     computed: {
+        user() {
+            return this.$store.getters.user
+        },
+        isAuth() {
+            return this.$store.getters.isAuth
+        },
         cartItemsTotal() {
             return this.$store.getters.cartItemsCount
         },
