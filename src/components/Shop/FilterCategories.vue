@@ -1,7 +1,7 @@
 <template>
   <Filter :title="'Product Categories'">
     <ul class="w-full h-auto">
-        <FilterCategoriesItem v-for="category in categories" :key="category.id" :category="category" />
+        <FilterCategoriesItem v-for="category in categories" :key="category.id" :category="category" @click="() => setCategory(category)"/>
     </ul>
   </Filter>
 </template>
@@ -14,7 +14,7 @@ import categories from '@/data/categories';
 export default {
     data () {
         return {
-            // categories
+            category: undefined
         }
     },
 
@@ -23,10 +23,22 @@ export default {
         FilterCategoriesItem,
     },
 
+    methods: {
+        setCategory (category) {
+            this.category = category
+        }
+    },
+
     computed: {
         categories () {
             const categories = this.$store.getters.categories.filter((category) => !category.parent)
             return categories
+        }
+    },
+
+    watch: {
+        category () {
+            this.$emit('set_category', this.category._id)
         }
     },
 

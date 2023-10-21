@@ -33,9 +33,9 @@ export default {
     },
 
     actions: {
-        async fetchProducts ({ commit, state }) {
+        async fetchProducts ({ commit, state }, query) {
             state.loading = true
-            const products = await ProductApi.fetchProducts()
+            const products = await ProductApi.fetchProducts(query)
             console.log(products)
             commit(productsActionsTypes.FETCH_PRODUCTS, products)
         },

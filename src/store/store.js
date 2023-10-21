@@ -6,6 +6,7 @@ import categories from './modules/categories'
 import products from './modules/products'
 import mainBanner from './modules/mainBanner'
 import user from './modules/user'
+import options from './modules/options'
 
 
 const store = createStore({
@@ -16,7 +17,8 @@ const store = createStore({
         categories,
         products,
         mainBanner,
-        user
+        user,
+        options
     }
 })
 

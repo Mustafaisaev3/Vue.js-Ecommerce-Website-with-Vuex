@@ -1,8 +1,15 @@
 import axios from '@/core/axios'
 
 export const ProductApi = {
-    async fetchProducts () {
-        const { data } = await axios.get('/products');
+    async fetchProducts (params) {
+        let queryString = ''
+        if (params) {
+            queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&')
+        }
+
+        const url = `/products?${params ? queryString : ''}`
+
+        const { data } = await axios.get(url);
         return data.data;
     },  
 

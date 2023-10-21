@@ -47,13 +47,27 @@ export default {
 
   computed: {
     products () {
-          const products = this.$store.state.products.products
-          return products
-      }
+      const products = this.$store.state.products.products
+      return products
+    },
+    route () {
+      return this.$route
+    }
+  },
+
+  watch: {
+    route : {
+      handler () {
+        console.log('change')
+        const query = this.$route.query
+        this.$store.dispatch('fetchProducts', query)
+      },
+      deep: true
+    }
   },
 
   mounted () {
-      this.$store.dispatch('fetchProducts')
+      this.$store.dispatch('fetchProducts', this.$route.query)
       console.log(this.$store.state.products.products)
   }
 }
