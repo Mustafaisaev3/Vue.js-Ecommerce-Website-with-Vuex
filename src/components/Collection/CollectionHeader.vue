@@ -1,6 +1,9 @@
 <template>
   <div class="w-full h-auto flex items-center justify-between p-4 border border-b-[0px] border-[#ebebeb]">
-    <div>Showing 1–12 of 18 results</div>
+    <div class="flex items-center gap-4 ">
+      <div class="bg-[#222222] hover:bg-[#03b3db] transition-all duration-300 cursor-pointer p-1 px-5 text-white lg:hidden" @click="openFilter">Filter</div>
+      <span class="hidden md:inline-block">Showing 1–12 of 18 results</span>
+    </div>
     <div class="flex items-center gap-4">
 
         <span class="rounded-sm cursor-pointer" 
@@ -23,6 +26,7 @@
 </template>
 
 <script>
+import { UIActionsType } from '@/store/modules/ui'
 import IconGrid from '~icons/mdi/dots-grid'
 import IconList from '~icons/mdi/format-list-bulleted'
 import Dropdown from '../UI/Dropdown/Dropdown.vue'
@@ -54,7 +58,13 @@ export default {
       },
       selectValue (value) {
         console.log(value)
-      }
+      },
+      openFilter () {
+        this.$store.commit(UIActionsType.OPEN_DRAWER, {
+            view: 'FILTER_VIEW',
+            data: 'FILTER'
+        })
+      },
     }
 
 }

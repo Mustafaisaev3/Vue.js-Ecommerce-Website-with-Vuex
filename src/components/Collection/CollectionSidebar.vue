@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[400px] h-auto">
+  <div class="collection-sidebar w-[400px] h-auto hidden lg:block">
     <FilterCategories @set_category="(category) => setCategory(category)"/>
     <div v-for="option in options" :key="option._id">
       <FilterByColors 

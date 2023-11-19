@@ -18,6 +18,7 @@ import Cart from '@/components/Cart/Cart.vue';
 import CartView from './DrawerViews/CartView.vue';
 import WishlistView from './DrawerViews/WishlistView.vue';
 import MobileMenuView from './DrawerViews/MobileMenuView.vue';
+import FilterView from './DrawerViews/FilterView.vue';
 
 const views = [
     {   
@@ -35,6 +36,11 @@ const views = [
         view: MobileMenuView,
         align: 'left'
     },
+    {   
+        name: 'FILTER_VIEW',
+        view: FilterView,
+        align: 'left'
+    },
 
 ]
 
@@ -48,7 +54,8 @@ export default {
     components: {
         CartView,
         WishlistView,
-        MobileMenuView
+        MobileMenuView,
+        FilterView
     },
     computed: {
         ...mapState({
