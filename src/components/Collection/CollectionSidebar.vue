@@ -8,7 +8,18 @@
         :options="option.values" 
         @set_value="(color) => setColor(color)"
       />
-      <FilterRadioButtons v-else :title="option.title" :options="option.values"/>
+      <FilterRadioButtons 
+        v-if="option.title === 'Size'" 
+        :title="option.title" 
+        :options="option.values"
+        @set_value="(value) => setSize(value)"
+      />
+      <FilterRadioButtons 
+        v-if="option.title === 'Width'" 
+        :title="option.title" 
+        :options="option.values"
+        @set_value="(value) => setWidth(value)"
+      />
     </div>
     <!-- <FilterByBrands />
     <FilterByColors />
@@ -60,11 +71,18 @@ export default {
       setColor (color) {
         this.filter.color = color
       },
+      setSize (size) {
+        this.filter.size = size
+      },
+      setWidth (width) {
+        this.filter.width = width
+      },
     },
 
     watch: {
       filter: {
         handler () {
+          console.log(this.filter)
           this.$router.push({query: { ...this.filter }})
         },
         deep: true

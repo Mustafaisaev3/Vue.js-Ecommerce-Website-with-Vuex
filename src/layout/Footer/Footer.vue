@@ -7,6 +7,7 @@
     <Modal />
     <Drawer />
     <Notification />
+    <Checkout />
   </footer>
 </template>
 
@@ -14,6 +15,7 @@
 import Modal from '@/components/UI/Modal/Modal.vue';
 import Drawer from '@/components/UI/Drawer/Drawer.vue';
 import Notification from '@/components/UI/Notifications/Notification.vue';
+import Checkout from '@/components/Checkout/Checkout.vue'
 import FooterAdvantages from './FooterAdvantages.vue';
 import FooterMain from './FooterMain.vue'
 
@@ -23,7 +25,8 @@ export default {
     FooterMain,
     Modal,
     Drawer,
-    Notification
+    Notification,
+    Checkout 
 }
 }
 </script>

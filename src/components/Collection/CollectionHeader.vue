@@ -1,10 +1,10 @@
 <template>
   <div class="w-full h-auto flex items-center justify-between p-4 border border-b-[0px] border-[#ebebeb]">
     <div class="flex items-center gap-4 ">
-      <div class="bg-[#222222] hover:bg-[#03b3db] transition-all duration-300 cursor-pointer p-1 px-5 text-white lg:hidden" @click="openFilter">Filter</div>
+      <div class="bg-[#222222] hover:bg-[#03b3db] transition-all duration-300 cursor-pointer rounded-sm p-1 px-5 text-white lg:hidden" @click="openFilter">Filter</div>
       <span class="hidden md:inline-block">Showing 1–12 of 18 results</span>
     </div>
-    <div class="flex items-center gap-4">
+    <div class="items-center gap-4 hidden md:flex">
 
         <span class="rounded-sm cursor-pointer" 
           :class="{active: currentLayout == layoutTypes.GRID }" 

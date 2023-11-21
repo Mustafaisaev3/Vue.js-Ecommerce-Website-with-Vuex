@@ -17,6 +17,10 @@ export const UIActionsType = {
     ADD_NOTIFICATION: 'ADD_NOTIFICATION',
     DELETE_NOTIFICATION: 'DELETE_NOTIFICATION',
     DELETE_NOTIFICATION_BY_ID: 'DELETE_NOTIFICATION_BY_ID',
+
+    // Checkout 
+    OPEN_CHECKOUT: 'OPEN_CHECKOUT',
+    CLOSE_CHECKOUT: 'CLOSE_CHECKOUT',
 }   
 
 export default {
@@ -34,6 +38,10 @@ export default {
         // Notification
         notifications: [],
         notificationsData: null,
+
+        // Checkout
+        showCheckout: false,
+        checkoutView: '',
     },
 
     mutations: {
@@ -76,6 +84,19 @@ export default {
             state.notifications = state.notifications.filter(notification => {
                 return notification.id != id
             })
+        },
+
+        // Checkout
+        OPEN_CHECKOUT(state, payload){
+            state.checkoutView = payload.view
+            state.showCheckout = true
+        },
+        CLOSE_CHECKOUT(state){
+            state.showCheckout = false
+            state.checkoutView = ''
+        },
+        SET_CHECKOUT_VIEW(state, payload){
+            state.checkoutView = payload
         },
     },
 

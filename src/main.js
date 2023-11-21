@@ -4,6 +4,7 @@ import './assets/styles/style.css'
 import './assets/styles/tailwind.css'
 import router from './router'
 import store from './store/store'
+import vueCountryRegionSelect from 'vue-country-region-select'
 import ImageMagnifier from 'vue-image-magnifier'
 
 
@@ -15,6 +16,7 @@ const app = createApp(App)
 app.use(store)
 app.use(router)
 app.use(ImageMagnifier)
+app.use(vueCountryRegionSelect)
 app.mount('#app')
 
 // app.directive('click-outside', {

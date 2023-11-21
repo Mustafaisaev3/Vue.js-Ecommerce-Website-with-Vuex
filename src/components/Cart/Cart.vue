@@ -26,7 +26,7 @@
             </div>
             <div class="flex flex-col gap-2">
                 <Button :buttonType="buttonTypes.SECONDARY" @click="openCartPage">View Cart</Button>
-                <Button :buttonType="buttonTypes.PRIMARY">Checkout</Button>
+                <Button :buttonType="buttonTypes.PRIMARY" @click="openCheckout">Checkout</Button>
             </div>
         </div>
     </div>
@@ -64,7 +64,11 @@ export default {
             this.$store.dispatch('deleteProductFromCart', id)
         },
         openCartPage () {
+            this.$store.commit(UIActionsType.CLOSE_DRAWER)
             this.$router.push('/cart')
+        },
+        openCheckout () {
+            this.$store.commit(UIActionsType.OPEN_CHECKOUT, '')
         },
     },
     
