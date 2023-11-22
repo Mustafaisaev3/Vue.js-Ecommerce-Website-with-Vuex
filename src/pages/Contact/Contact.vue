@@ -35,13 +35,13 @@
         <div class="w-full lg:w-[65%] h-auto p-[15px] lg:p-[36px] bg-[white]">
             <h2 class="text-[20px] pb-4">Write to us</h2>
             <div class="w-full h-auto flex gap-4">
-                <Input placeholder="Name" />
-                <Input placeholder="Email" />
+                <Input placeholder="Name" :error="formErrors.name"/>
+                <Input placeholder="Email" :error="formErrors.email"/>
             </div>
             <div class="w-full h-auto">
-                <Textarea placeholder="Message" :rows="5" />
+                <Textarea placeholder="Message" :rows="5" :error="formErrors.message"/>
             </div>
-            <div class="w-full h-auto">
+            <div class="w-full h-auto" @click="submitForm">
                 <Button :buttonType="buttonTypes.PRIMARY" class="rounded-sm">Send message</Button>
             </div>
         </div>
@@ -53,14 +53,31 @@
 </template>
 
 <script>
+// Vuelidate
+import useVuelidate from '@vuelidate/core'
+import { required, email, minLength} from '@vuelidate/validators';
+
+// Components
 import Input from '@/components/UI/Input/Input.vue'
 import Textarea from '@/components/UI/Textarea/Textarea.vue'
-import IconHeadphones from '~icons/mdi/headphones'
 import Button from '@/components/UI/Button/Button.vue'
+
+// Icons
+import IconHeadphones from '~icons/mdi/headphones'
+
 import { ButtonTypes } from '@/types/button-types';
 
 
+
 export default {
+    data () {
+        return {
+            v$: useVuelidate(),
+            name: '',
+            email: '',
+            message: '',
+        }
+    },
     components: {
         IconHeadphones,
         Input,
@@ -71,6 +88,27 @@ export default {
         buttonTypes () {
             return ButtonTypes
         },
+        formErrors () {
+            return {
+                email: this.v$.email.$error && this.v$.email.$errors[0].$message,
+                name: this.v$.name.$error && this.v$.name.$errors[0].$message,
+                message: this.v$.message.$error && this.v$.message.$errors[0].$message,
+            }
+        },
+    },
+    methods: {
+        submitForm () {
+            this.v$.$validate()
+            console.log(this.v$.$errors)
+
+        }
+    },
+    validations () {
+        return {
+            name: {required, minLength: minLength(1)},
+            email: {required, email},
+            message: {required, minLength: minLength(1)},
+        }
     }
 }
 </script>
