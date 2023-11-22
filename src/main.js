@@ -6,17 +6,17 @@ import router from './router'
 import store from './store/store'
 import vueCountryRegionSelect from 'vue-country-region-select'
 import ImageMagnifier from 'vue-image-magnifier'
+import useClickOutside from './directives/useClickOutside'
 
 
 
 const app = createApp(App)
 
-
-
 app.use(store)
 app.use(router)
 app.use(ImageMagnifier)
 app.use(vueCountryRegionSelect)
+app.directive('click-outside', useClickOutside)
 app.mount('#app')
 
 // app.directive('click-outside', {

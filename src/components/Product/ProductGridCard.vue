@@ -13,8 +13,8 @@
             </h4>
             <div class="text-[16px] font-bold text-[#222] pb-4">£{{ product.price }}</div>
             <div class="flex flex-col gap-2 flex-1">
-                <Button @click="add_to_cart" :buttonType="'primary'" class="uppercase rounded-sm ">Add to cart</Button>
-                <Button @click="openModal" :buttonType="'secondary'" class="uppercase rounded-sm ">Quick View</Button>
+                <Button @click="add_to_cart" :buttonType="'primary'" class="uppercase rounded-sm text-[12px] md:text-[14px]">Add to cart</Button>
+                <Button @click="openModal" :buttonType="'secondary'" class="uppercase rounded-sm text-[12px] md:text-[14px]">Quick View</Button>
             </div>
         </div>
 

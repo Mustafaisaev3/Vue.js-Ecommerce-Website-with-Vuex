@@ -11,7 +11,7 @@
             <a href="#" class="h-full flex items-center text-sm text-white hover:text-[#14a8c5] transition-all">ABOUT</a>
         </li>
         <li class="h-full">
-            <a href="#" class="h-full flex items-center text-sm text-white hover:text-[#14a8c5] transition-all">FAQ</a>
+            <a href="/contact" class="h-full flex items-center text-sm text-white hover:text-[#14a8c5] transition-all">CONTACT US</a>
         </li>
     </ul>
   </nav>

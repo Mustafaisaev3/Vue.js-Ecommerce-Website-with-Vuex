@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full h-full flex flex-col lg:flex-row">
+            <div v-if="products.length" class="w-full h-full flex flex-col lg:flex-row">
                 <div class="w-[100%] lg:w-[50%] px-[20px] md:px-[50px] lg:pl-[200px] lg:pr-[50px] py-[30px]">
                     <CheckoutBlock :title="'Contact'" :size="'lg'">
                         <CheckoutInput placeholder="Email or mobile phone number" v-model="email" :error="formErrors.email"/>
@@ -69,9 +69,11 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="w-[40px] h-[40px] flex items-center justify-center bg-[#00b7ff] rounded-sm text-white cursor-pointer absolute top-0 right-0" @click="closeCheckout">
-                <IconClose style="font-size: 20px" />
-            </div> -->
+            <div v-else class="w-full h-auto flex flex-col items-center justify-center gap-5 py-[100px]">
+                <img class="w-[600px] h-auto" src="https://menabasket.com/pub/static/version1618825676/frontend/MageBig/martfury_layout03/en_US/images/empty-cart.svg" alt="">
+                <div class="text-[30px] text-[white]">Your Cart Is Empty.</div>
+                <Button :buttonType="'primary'" class="rounded-md bg-[white] w-[300px] p-3" @click="closeCheckout">Continue shopping</Button>
+            </div>
         </div>
     </div>
   </teleport>

@@ -71,4 +71,4 @@ mounted () {
 
 <style>
 
-</style>
+</style>@/utils/useClickOutside2

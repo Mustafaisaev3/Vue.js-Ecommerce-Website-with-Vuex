@@ -1,20 +1,28 @@
-export default function useOnClickOutside(
-    refId,
-    handler
-) {
-    const listener = (event) => {
-        const el = document.getElementById(refId)
-        if (!el || el.contains((event?.target) || null)) {
-          return
+import { onBeforeUnmount, onMounted } from "vue"
+
+export default function useClickOutside(target_el, callback) {
+    console.log('click outside')
+    if (!target_el) return
+    console.log(target_el, 'target_el')
+    let listener = (e) => {
+        if (target_el == e.target || target_el.contains(e.target)){
+            // We clicked inside the root region (modal). Don't need to close
+            return 
         }
-        handler(event);
-    };
-      
-    document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
-  
-    return () => {
-        document.removeEventListener('mousedown', listener);
-        document.removeEventListener('touchstart', listener);
-    };
+
+        // At this point we clicked outside the modal
+        if (typeof callback == 'function') {
+            callback()
+        }
+    }
+
+    onMounted(() => {
+        window.addEventListener('click', listener)
+    })
+
+    onBeforeUnmount(() => {
+        window.removeEventListener('click', listener)
+    })
+
+    return listener
 }

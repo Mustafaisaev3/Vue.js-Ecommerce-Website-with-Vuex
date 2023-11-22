@@ -16,8 +16,8 @@
                 </div>
             </div>
         </div>
-        <div class="flex w-full items-center">
-            <div>
+        <div class="flex w-full items-center justify-between">
+            <div class="w-full h-full py-[30px] px-[50px]">
                 <h4 class="text-[14px] text-[#0068c9] pb-2 min-h-[50px]">
                     <a href="#">{{ product.title }}</a>
                 </h4>
