@@ -14,7 +14,7 @@
             </div>
             <div class="w-full h-full ">
                 <div class="flex items-center gap-2 py-[20px]">
-                    <div class="text-[#00b3ff] text-[50px]">
+                    <div class="text-[#03b3db] text-[50px]">
                         <IconHeadphones class="" />
                     </div>
                     <div class="w-full h-auto">
@@ -35,11 +35,11 @@
         <div class="w-full lg:w-[65%] h-auto p-[15px] lg:p-[36px] bg-[white]">
             <h2 class="text-[20px] pb-4">Write to us</h2>
             <div class="w-full h-auto flex gap-4">
-                <Input placeholder="Name" :error="formErrors.name"/>
-                <Input placeholder="Email" :error="formErrors.email"/>
+                <Input placeholder="Name" v-model="name" :error="formErrors.name"/>
+                <Input placeholder="Email" v-model="email" :error="formErrors.email"/>
             </div>
             <div class="w-full h-auto">
-                <Textarea placeholder="Message" :rows="5" :error="formErrors.message"/>
+                <Textarea placeholder="Message" v-model="message" :rows="5" :error="formErrors.message"/>
             </div>
             <div class="w-full h-auto" @click="submitForm">
                 <Button :buttonType="buttonTypes.PRIMARY" class="rounded-sm">Send message</Button>
@@ -65,7 +65,11 @@ import Button from '@/components/UI/Button/Button.vue'
 // Icons
 import IconHeadphones from '~icons/mdi/headphones'
 
+import { UserMessageApi } from '@/services/api/userMessageApi.js'
+
+// Types
 import { ButtonTypes } from '@/types/button-types';
+import notificationTypes from '@/types/notification-types';
 
 
 
@@ -97,9 +101,25 @@ export default {
         },
     },
     methods: {
-        submitForm () {
+        async submitForm () {
             this.v$.$validate()
-            console.log(this.v$.$errors)
+            if (this.v$.$error) {
+                console.log(this.v$.$errors)
+                return
+            } else {
+                const response = await UserMessageApi.sendMessage({
+                    name: this.name,
+                    email: this.email,
+                    message: this.message
+                })
+
+                if (response.status == 'success') {
+                    this.$store.dispatch('addNotification', {type: notificationTypes.SUCCESS, text: response.message})
+                } else {
+                    this.$store.dispatch('addNotification', {type: notificationTypes.ERROR, text: response.message})
+                }
+            }
+
 
         }
     },
