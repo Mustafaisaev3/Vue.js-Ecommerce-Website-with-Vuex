@@ -37,7 +37,7 @@
                         </div>
                     </CheckoutBlock>
                     <CheckoutBlock :title="'Shipping method'" :size="'sm'">
-                        <CheckoutShipping :active="showShippingMethods"/>
+                        <CheckoutShipping :active="showShippingMethods" v-model="shipping"/>
                     </CheckoutBlock>
 
                     <div 
@@ -83,10 +83,17 @@
 import { mapState } from 'vuex';
 import useVuelidate from '@vuelidate/core';
 import { required, email, numeric, minLength, maxLength } from '@vuelidate/validators';
+import { OrderApi } from '@/services/api/orderApi'
+
+// Types
+import notificationTypes from '@/types/notification-types';
+import { CartActionsType } from '@/store/modules/cart'
+import { UIActionsType } from '@/store/modules/ui';
+
+// icons
 import IconClose from '~icons/mdi/close'
 import IconCart from '~icons/mdi/basket'
-import { UIActionsType } from '@/store/modules/ui';
-import {ModalViewsType} from '@/types/modal-views-types'
+
 import CheckoutInput from './CheckoutUI/CheckoutInput.vue';
 import CheckoutSelect from './CheckoutUI/CheckoutSelect.vue';
 import CheckoutBlock from './CheckoutUI/CheckoutBlock.vue';
@@ -96,7 +103,6 @@ import CheckoutProduct from './CheckoutUI/CheckoutProduct.vue';
 
 const countries = require('i18n-iso-countries')
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'))
-console.log(countries)
 
 export default {
     data () {
@@ -109,6 +115,7 @@ export default {
             zip: '',
             firstname: '',
             lustname: '',
+            shipping: '',
         }
     },
     components: {
@@ -147,7 +154,7 @@ export default {
         },
         showShippingMethods () {
             return (!!this.city && !!this.state && !!this.zip) && (!this.v$.city.$error && !this.v$.state.$error && !this.v$.zip.$error)
-        }
+        },
     },
     methods: {
         closeCheckout(){
@@ -157,9 +164,31 @@ export default {
         consoleState() {
             console.log(this.city, this.state, this.zip, this.country)
         },
-        submitForm() {
+        async submitForm() {
             this.v$.$validate()
-            console.log(this.v$)
+            if (this.v$.$error) {
+                return
+            } else {
+                const response = await OrderApi.createOrder({
+                    products: this.products,
+                    email: this.email,
+                    firstName: this.firstname,
+                    lustName: this.lustname,
+                    address: `${this.country} - ${this.city} - ${this.state} - ${this.zip}`,
+                    orderStatus: 'pending',
+                })
+
+                console.log(response)
+
+                if (response.status == 'success') {
+                    this.$store.dispatch('addNotification', {type: notificationTypes.SUCCESS, text: response.message})
+                    this.closeCheckout()
+                    this.$store.commit(CartActionsType.CLEAR_SHOPPING_CART)
+                    this.$store.commit(UIActionsType.CLOSE_DRAWER)
+                } else {
+                    this.$store.dispatch('addNotification', {type: notificationTypes.ERROR, text: response.message})
+                }
+            }
         }
     },
     validations() {

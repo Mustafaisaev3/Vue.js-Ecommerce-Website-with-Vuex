@@ -104,7 +104,6 @@ export default {
         async submitForm () {
             this.v$.$validate()
             if (this.v$.$error) {
-                console.log(this.v$.$errors)
                 return
             } else {
                 const response = await UserMessageApi.sendMessage({
@@ -119,8 +118,6 @@ export default {
                     this.$store.dispatch('addNotification', {type: notificationTypes.ERROR, text: response.message})
                 }
             }
-
-
         }
     },
     validations () {
